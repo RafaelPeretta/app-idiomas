@@ -1474,8 +1474,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -142.15, y: -708.37}
-  m_SizeDelta: {x: 724.99, y: 160.62}
+  m_AnchoredPosition: {x: 3.1705, y: -609}
+  m_SizeDelta: {x: 577.962, y: 101.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &970123171
 MonoBehaviour:
@@ -1497,7 +1497,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ainda n\xE3o tem uma conta?"
+  m_text: Criar uma nova conta
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1766,7 +1766,7 @@ GameObject:
   - component: {fileID: 1073150465}
   - component: {fileID: 1073150464}
   m_Layer: 5
-  m_Name: textoBVindo
+  m_Name: textoLogin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1788,7 +1788,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00038146973, y: 828}
+  m_AnchoredPosition: {x: -0.00038146973, y: 747}
   m_SizeDelta: {x: 440.69, y: 101.2417}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1073150464
@@ -1811,7 +1811,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bem Vindo!
+  m_text: Login
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2631,7 +2631,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.1704, y: -338}
+  m_AnchoredPosition: {x: -3.1704, y: -319}
   m_SizeDelta: {x: 434.35, y: 140.9131}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1729958180
@@ -2812,7 +2812,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 358.55, y: -664}
+  m_AnchoredPosition: {x: 3.1705, y: -725.49}
   m_SizeDelta: {x: 276.41, y: 131.3699}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1872737801
