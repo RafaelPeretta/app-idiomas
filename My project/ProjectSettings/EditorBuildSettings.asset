@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/telaLogin.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/telaCadastro.unity
+    guid: 1a9f56e063dda7c4d9387df871dc6139
+  - enabled: 1
+    path: Assets/Scenes/telaPrincipal.unity
+    guid: 9ebb4ee67e9bf3644bcca9dc0c1e4f41
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
