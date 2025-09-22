@@ -40,10 +40,6 @@ public class NavigationManager : MonoBehaviour
 
     private void PreencherInformacoesDoPerfil()
     {
-        // --- CORREÇÃO FINAL APLICADA AQUI ---
-        // Em vez de usar 'FirebaseAuthenticator.Instance.user',
-        // usamos 'FirebaseAuthenticator.Instance.auth.CurrentUser'.
-        // Esta é a fonte oficial e sempre atualizada de quem está logado.
         var user = FirebaseAuthenticator.Instance.auth.CurrentUser;
 
         if (user != null)
