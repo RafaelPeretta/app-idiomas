@@ -1,86 +1,110 @@
 using UnityEngine;
-using Firebase.Auth; // essencial para Autenticação
-using Firebase;      // essencial para o Firebase em geral
-using TMPro;         // para usar os campos de texto TextMeshPro
+using Firebase.Auth;
+using Firebase;
+using TMPro;
 using System.Collections;
-using UnityEngine.SceneManagement; // para mudar de tela após o cadastro
+using UnityEngine.SceneManagement;
 
 public class RegisterAuth : MonoBehaviour
 {
-    [Header("UI de Cadastro")]
-    public TMP_InputField usernameInput; // campo para o nome do usuário
-    public TMP_InputField emailInput;    // campo para o e-mail
-    public TMP_InputField passwordInput; // campo para a senha
+    [Header("UI de Registo")]
+    public TMP_InputField usernameInput;
+    public TMP_InputField emailInput;
+    public TMP_InputField passwordInput;
 
     [Header("Feedback para o Usuário")]
-    public TMP_Text warningRegisterText; // texto para exibir erros (ex: "Senha fraca")
-    public TMP_Text confirmRegisterText; // texto para exibir sucesso
+    public TMP_Text warningRegisterText;
+    public TMP_Text confirmRegisterText;
 
-    // esta função será chamada pelo seu botão "Cadastre-se"
-    public void RegisterButton()
+    public void MostrarSenha()
     {
-        // inicia o processo de registro em uma rotina separada para não travar o app
-        StartCoroutine(Register(usernameInput.text, emailInput.text, passwordInput.text));
+        passwordInput.contentType = TMP_InputField.ContentType.Standard;
+        passwordInput.ForceLabelUpdate();
     }
 
-    // a lógica principal de registro
+    public void EsconderSenha()
+    {
+        passwordInput.contentType = TMP_InputField.ContentType.Password;
+        passwordInput.ForceLabelUpdate();
+    }
+
+    public void RegisterButton()
+    {
+        string username = usernameInput.text;
+        string email = emailInput.text;
+        string password = passwordInput.text;
+
+
+        if (!IsEmailDomainAllowed(email))
+        {
+            warningRegisterText.text = "Domínio de e-mail não permitido.";
+            return;
+        }
+
+
+        StartCoroutine(Register(username, email, password));
+    }
+
     private IEnumerator Register(string username, string email, string password)
     {
-        // acessa nosso gerente geral do Firebase
         var auth = FirebaseAuthenticator.Instance.auth;
-
-        // 1. CRIA O USUÁRIO COM EMAIL E SENHA
         var registerTask = auth.CreateUserWithEmailAndPasswordAsync(email, password);
         
-        // Espera a tarefa de registro ser completada
         yield return new WaitUntil(predicate: () => registerTask.IsCompleted);
 
-        // 2. VERIFICA SE HOUVE ERROS no registro inicial
         if (registerTask.Exception != null)
         {
-            // Se houve erro, formata e exibe a mensagem apropriada
-            Debug.LogWarning($"Falha ao registrar tarefa com {registerTask.Exception}");
+            Debug.LogWarning($"Falha ao registar tarefa com {registerTask.Exception}");
             FirebaseException firebaseEx = registerTask.Exception.GetBaseException() as FirebaseException;
             AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
             warningRegisterText.text = GetRegisterErrorMessage(errorCode);
         }
         else
         {
-            // 3. SE O CADASTRO FOI BEM-SUCEDIDO, pega o novo usuário
             AuthResult result = registerTask.Result;
             FirebaseUser newUser = result.User;
 
             if (newUser != null)
             {
-                // Agora, atualizamos o perfil dele com o nome de usuário
                 UserProfile profile = new UserProfile { DisplayName = username };
                 var profileTask = newUser.UpdateUserProfileAsync(profile);
 
-                // Espera a tarefa de atualização do perfil ser completada
                 yield return new WaitUntil(predicate: () => profileTask.IsCompleted);
 
                 if (profileTask.Exception != null)
                 {
-                    // Se deu erro ao salvar o nome, avisa o usuário
                     Debug.LogWarning($"Falha ao atualizar perfil com {profileTask.Exception}");
                     warningRegisterText.text = "Falha ao salvar o nome de usuário.";
                 }
                 else
                 {
-                    // 4. TUDO CERTO! Cadastro e perfil atualizado com sucesso!
-                    warningRegisterText.text = ""; // Limpa qualquer aviso de erro antigo
+                    warningRegisterText.text = "";
                     confirmRegisterText.text = "Usuário registrado com sucesso!";
                     Debug.Log("Cadastro e atualização de perfil concluídos!");
 
-                    // Opcional: Redirecionar para a tela de login após um tempo
-                    yield return new WaitForSeconds(2); // Espera 2 segundos
-                    SceneManager.LoadScene("telaLogin"); // Mude "telaLogin" para o nome EXATO da sua cena de login
+                    yield return new WaitForSeconds(2);
+                    SceneManager.LoadScene("telaLogin");
                 }
             }
         }
     }
 
-    // Função para "traduzir" os códigos de erro do Firebase para mensagens amigáveis
+
+    private bool IsEmailDomainAllowed(string email)
+    {
+        if (string.IsNullOrEmpty(email)) return false;
+        string[] allowedDomains = { "@gmail.com", "@hotmail.com", "@icloud.com" };
+        foreach (var domain in allowedDomains)
+        {
+            if (email.EndsWith(domain))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     private string GetRegisterErrorMessage(AuthError errorCode)
     {
         switch (errorCode)
