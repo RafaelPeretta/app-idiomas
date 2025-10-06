@@ -8,4 +8,16 @@ public class GerenciadorDeCenas : MonoBehaviour
     {
         SceneManager.LoadScene(nomeDaCena);
     }
+
+    // Método para navegar para o quiz diário
+    public void IrParaQuizDiario()
+    {
+        MudarCena("quizDiario"); 
+    }
+
+    // Método para voltar para a tela principal
+    public void VoltarParaTelaPrincipal()
+    {
+        MudarCena("telaPrincipal");
+    }
 }
