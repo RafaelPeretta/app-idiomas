@@ -75,6 +75,7 @@ public class QuizManager : MonoBehaviour
                 answerButtons[i].interactable = true; // Re-enable buttons
             }
             nextButton.gameObject.SetActive(false);
+            nextButton.interactable = false;
         }
         else
         {
@@ -96,6 +97,7 @@ public class QuizManager : MonoBehaviour
         }
         if (isCorrect) correctAnswers++;
         nextButton.gameObject.SetActive(true);
+        nextButton.interactable = true;
         foreach (var btn in answerButtons) btn.interactable = false; // Disable buttons after answer
     }
 
