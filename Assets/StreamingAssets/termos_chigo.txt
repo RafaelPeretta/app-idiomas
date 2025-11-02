@@ -1,0 +1,28 @@
+Termos de Uso – Idiome (Projeto Passaporte Universitário)
+
+Sobre o Idiome
+O Idiome é um aplicativo educativo desenvolvido para auxiliar falantes de português a aprender inglês, com foco em atividades e exercícios de prática linguística. Todo o conteúdo é original e de propriedade do desenvolvedor, responsável por sua criação e manutenção.
+
+Uso do Aplicativo
+O Idiome destina-se exclusivamente a fins educativos e pessoais.
+É proibida a reprodução, redistribuição ou modificação de qualquer parte do conteúdo sem autorização prévia do desenvolvedor.
+O aplicativo não deve ser usado para fins comerciais, ilegais ou que causem danos a terceiros.
+
+Responsabilidade sobre o Conteúdo
+O desenvolvedor é único responsável pelo conteúdo exibido no aplicativo, incluindo textos, áudios, imagens e exercícios.
+Caso o usuário identifique erros, imprecisões ou problemas, poderá relatar diretamente pelo sistema de feedback disponível dentro do aplicativo. Esses relatórios serão analisados e, quando necessário, resultarão em correções nas atualizações futuras.
+
+Conta e Dados do Usuário
+Se houver login, o usuário é responsável por manter a segurança de suas credenciais.
+As informações fornecidas são utilizadas apenas para autenticação e melhoria da experiência, sem compartilhamento com terceiros.
+
+Alterações e Atualizações
+O aplicativo e seus termos podem ser atualizados a qualquer momento.
+O uso contínuo após atualizações significa que o usuário concorda com as novas condições.
+
+Propriedade Intelectual
+Todos os direitos sobre o conteúdo e o código-fonte do Idiome pertencem ao desenvolvedor.
+Nenhum direito de propriedade é transferido ao usuário.
+
+Contato
+Dúvidas ou sugestões podem ser enviadas através do próprio aplicativo, na área de contato ou feedback.

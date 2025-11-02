@@ -1,0 +1,78 @@
+[
+  {
+    "id": "N5-01A-Q047",
+    "categoriaId": "N5-01",
+    "faseId": "A",
+    "texto": "Qual é a leitura de が?",
+    "alternativas": [
+      "ga",
+      "gi",
+      "gu",
+      "ge",
+      "go"
+    ],
+    "respostaCorreta": "ga",
+    "simulado": false,
+    "minigame": false,
+    "campanha": true,
+    "tipo": "alternativa",
+    "ultimaEdicao": "2025-09-21T00:00:00Z"
+  },
+  {
+    "id": "N5-01A-Q048",
+    "categoriaId": "N5-01",
+    "faseId": "A",
+    "texto": "Qual é a leitura de ぎ?",
+    "alternativas": [
+      "ga",
+      "gi",
+      "gu",
+      "ge",
+      "go"
+    ],
+    "respostaCorreta": "gi",
+    "simulado": false,
+    "minigame": false,
+    "campanha": true,
+    "tipo": "alternativa",
+    "ultimaEdicao": "2025-09-21T00:00:00Z"
+  },
+  {
+    "id": "N5-01A-Q049",
+    "categoriaId": "N5-01",
+    "faseId": "A",
+    "texto": "Qual é a leitura de ぐ?",
+    "alternativas": [
+      "ga",
+      "gi",
+      "gu",
+      "ge",
+      "go"
+    ],
+    "respostaCorreta": "gu",
+    "simulado": false,
+    "minigame": false,
+    "campanha": true,
+    "tipo": "alternativa",
+    "ultimaEdicao": "2025-09-21T00:00:00Z"
+  },
+  {
+    "id": "N5-01A-Q050",
+    "categoriaId": "N5-01",
+    "faseId": "A",
+    "texto": "Qual é a leitura de げ?",
+    "alternativas": [
+      "ga",
+      "gi",
+      "gu",
+      "ge",
+      "go"
+    ],
+    "respostaCorreta": "ge",
+    "simulado": false,
+    "minigame": false,
+    "campanha": true,
+    "tipo": "alternativa",
+    "ultimaEdicao": "2025-09-21T00:00:00Z"
+  }
+]

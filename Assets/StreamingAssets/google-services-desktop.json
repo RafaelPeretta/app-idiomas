@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "365074935641",
+    "project_id": "idiome-52777",
+    "storage_bucket": "idiome-52777.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:365074935641:android:151fcff671f9135aa12648",
+        "android_client_info": {
+          "package_name": "com.idiome"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvms9dqPVlIbW98FtUpWkSViGWI-KuF04"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
