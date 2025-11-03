@@ -1,3 +1,4 @@
+/*
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -199,3 +200,4 @@ public class PhaseUIManager : MonoBehaviour
     public void OnClickAlternativa3() => answerScript.RegistrarResposta(alternativa3Text.text);
     public void OnClickAlternativa4() => answerScript.RegistrarResposta(alternativa4Text.text);
 }
+*/

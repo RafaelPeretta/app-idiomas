@@ -1,3 +1,4 @@
+/*
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -25,3 +26,4 @@ public class ProgressBarManager : MonoBehaviour
             progressoPercentText.text = "Progresso: " + percent + "%";
     }
 }
+*/
