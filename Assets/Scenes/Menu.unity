@@ -5058,7 +5058,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1058516628}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6542699745871200621, guid: f055973d2cd36c14190c9f4bd030bd94, type: 3}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: irParaCena
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: QuestionList
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1058516628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7625,7 +7637,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[ Action Name ]'
+  m_text: "Teste Diagnn\xF3stico"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9004,7 +9016,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: d5f1a96aa0e9d944795499a2a32ae36c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

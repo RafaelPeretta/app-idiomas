@@ -21,14 +21,12 @@ public class PhaseUIManager : MonoBehaviour
     public TMP_Text alternativa2Text;
     public TMP_Text alternativa3Text;
     public TMP_Text alternativa4Text;
-    public TMP_Text alternativa5Text;
 
     [Header("Botões alternativas")]
     public Button alternativa1Btn;
     public Button alternativa2Btn;
     public Button alternativa3Btn;
     public Button alternativa4Btn;
-    public Button alternativa5Btn;
 
     [Header("Cores alternativas")]
     public Color corAlternativaNormal = Color.white;
@@ -39,7 +37,6 @@ public class PhaseUIManager : MonoBehaviour
     public TMP_Text textoConteudo;
 
     [Header("Layout feedback")]
-    public TMP_Text tempoFinalText;
     public TMP_Text desempenhoPercentText; // TMP para desempenho final
     public GameObject feedbackButtonPrefab;
     public Transform feedbackContainer;
@@ -47,8 +44,6 @@ public class PhaseUIManager : MonoBehaviour
     public Color corErro = Color.red;
 
     public int currentID = 0;
-    private float tempoFase = 0f;
-    private bool contandoTempo = false;
 
     private void Start()
     {
@@ -56,21 +51,12 @@ public class PhaseUIManager : MonoBehaviour
         if (answerScript != null)
             answerScript.onRespostaRegistrada += OnRespostaRegistrada;
 
-        tempoFase = 0f;
-        contandoTempo = true;
-
         ShowItemByID(currentID);
-    }
-
-    private void Update()
-    {
-        if (contandoTempo)
-            tempoFase += Time.deltaTime;
     }
 
     private void ResetAlternativas()
     {
-        Button[] botoes = { alternativa1Btn, alternativa2Btn, alternativa3Btn, alternativa4Btn, alternativa5Btn };
+        Button[] botoes = { alternativa1Btn, alternativa2Btn, alternativa3Btn, alternativa4Btn };
 
         foreach (var btn in botoes)
         {
@@ -115,7 +101,6 @@ public class PhaseUIManager : MonoBehaviour
                 alternativa2Text.text = item.opcoes[1];
                 alternativa3Text.text = item.opcoes[2];
                 alternativa4Text.text = item.opcoes[3];
-                alternativa5Text.text = item.opcoes[4];
             }
         }
         else if (item.tipo == "texto")
@@ -135,21 +120,12 @@ public class PhaseUIManager : MonoBehaviour
 
     private void ShowFeedbackScreen()
     {
-        contandoTempo = false;
-
         alternativa5.SetActive(false);
         texto.SetActive(false);
         feedback.SetActive(true);
         nextBTN.SetActive(false);
 
         // Tempo total
-        if (tempoFinalText != null)
-        {
-            int minutos = Mathf.FloorToInt(tempoFase / 60f);
-            int segundos = Mathf.FloorToInt(tempoFase % 60f);
-            tempoFinalText.text = $"Tempo total: {minutos:D2}:{segundos:D2}";
-        }
-
         // Desempenho final
         if (desempenhoPercentText != null && answerScript.Respostas.Count > 0)
         {
@@ -191,8 +167,8 @@ public class PhaseUIManager : MonoBehaviour
             nextBTN.SetActive(true);
 
         // Feedback visual nas alternativas
-        Button[] botoes = { alternativa1Btn, alternativa2Btn, alternativa3Btn, alternativa4Btn, alternativa5Btn };
-        TMP_Text[] textos = { alternativa1Text, alternativa2Text, alternativa3Text, alternativa4Text, alternativa5Text };
+        Button[] botoes = { alternativa1Btn, alternativa2Btn, alternativa3Btn, alternativa4Btn};
+        TMP_Text[] textos = { alternativa1Text, alternativa2Text, alternativa3Text, alternativa4Text};
 
         var ultimaResposta = answerScript.Respostas[answerScript.Respostas.Count - 1];
 
@@ -222,5 +198,4 @@ public class PhaseUIManager : MonoBehaviour
     public void OnClickAlternativa2() => answerScript.RegistrarResposta(alternativa2Text.text);
     public void OnClickAlternativa3() => answerScript.RegistrarResposta(alternativa3Text.text);
     public void OnClickAlternativa4() => answerScript.RegistrarResposta(alternativa4Text.text);
-    public void OnClickAlternativa5() => answerScript.RegistrarResposta(alternativa5Text.text);
 }
