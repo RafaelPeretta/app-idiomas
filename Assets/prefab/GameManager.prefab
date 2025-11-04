@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3939246739282664216}
   - component: {fileID: 1794243193931270926}
-  - component: {fileID: 6343982627308227924}
   - component: {fileID: 6542699745871200621}
   - component: {fileID: -2526457696572312236}
+  - component: {fileID: 7178988343046892968}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -47,26 +47,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6afd13a0708621841947691063debea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faseSelecionada: 
   currentUserData:
     username: 
     bio: 
-    completedLessons: 0
-    level: 0
-    coins: 0
+    trilhas: []
+    habilidades: []
+    pontos: 0
     userId: 
---- !u!114 &6343982627308227924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4151782068389192046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a569992e8b73ae45920dda7443b0d7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  userName_input: {fileID: 0}
+    vida: 0
+  hpText: {fileID: 0}
 --- !u!114 &6542699745871200621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,6 +69,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3465f84d6746d3b4381b2bb70f35924c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faseQuestoes: 46
+  maxQuestoes: 10
 --- !u!114 &-2526457696572312236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,5 +81,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a3f6881472c0874686b7e1c0b241212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7178988343046892968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4151782068389192046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef5c41ca4a0f424ca0153a58e28df31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

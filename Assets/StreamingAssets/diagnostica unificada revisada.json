@@ -98,7 +98,7 @@
                 "Errado — não faz sentido no contexto."
             ],
             "Habilidades": "EF06LI19",
-            "RespostaCorreta": "At school"
+            "RespostaCorreta": ["At school"]
         },
         {
             "Tipo": "textoAlternativa",
@@ -145,14 +145,14 @@
             "Midia": "",
             "Questao": " Complete os verbos com a forma correta do verbo to be (presente simple):",
             "Alternativas": [
-                "A) The Nile river __________ long.",
-                "B) The Grimm Brothers __________ from Germany.",
-                "C) The temperatures will __________ very high in the future."
+                "1 - The Nile river __________ long.",
+                "2 - The Grimm Brothers __________ from Germany.",
+                "3 - The temperatures will __________ very high in the future."
             ],
             "Explicacoes": [
-                "A) Utiliza-se is, por se tratar da terceira pessoa do singular no presente simples.",
-                "B) Utiliza-se were, por se tratar da terceira pessoa do plural no passado simples.",
-                "C) Utiliza-se be, pois o verbo deve ser empregado na forma infinitiva depois de will."
+                "1 - Utiliza-se is, por se tratar da terceira pessoa do singular no presente simples.",
+                "2 - Utiliza-se were, por se tratar da terceira pessoa do plural no passado simples.",
+                "3 - Utiliza-se be, pois o verbo deve ser empregado na forma infinitiva depois de will."
             ],
             "Habilidades": "EF06LI19",
             "RespostaCorreta": [
@@ -166,14 +166,14 @@
             "Midia": "",
             "Questao": "Complete os verbos com a forma correta do verbo to be: ",
             "Alternativas": [
-                "A) She __________ studying Spanish now.",
-                "B) He has __________ abroad twice.",
-                "C) They can __________ hired in the end of the course."
+                "1 - She __________ studying Spanish now.",
+                "2 - He has __________ abroad twice.",
+                "3 - They can __________ hired in the end of the course."
             ],
             "Explicacoes": [
-                "A) Utiliza-se is, por se tratar da terceira pessoa do singular no presente simples contínuo.",
-                "B) Utiliza-se been, por se tratar do particípio do passado.",
-                "C) Utiliza-se be, pois o verbo deve ser empregado na forma infinitiva depois de verbos modais."
+                "1 - Utiliza-se is, por se tratar da terceira pessoa do singular no presente simples contínuo.",
+                "2 - Utiliza-se been, por se tratar do particípio do passado.",
+                "3 - Utiliza-se be, pois o verbo deve ser empregado na forma infinitiva depois de verbos modais."
             ],
             "Habilidades": "EF06LI20",
             "RespostaCorreta": [
@@ -185,22 +185,23 @@
         {
             "Tipo": "simplesEscrita",
             "Midia": "",
+            "Texto": "",
             "Questao": " Complete as frases a seguir com a forma correta do verbo to be no presente simples:",
             "Alternativas": [
-                "A) My friends _____ French.",
-                "B) Brazil _____ a beautiful country.",
-                "C) I _____ 20 years old."
+                "1 - My friends _____ French.",
+                "2 - Brazil _____ a beautiful country.",
+                "3 - I _____ 20 years old."
             ],
             "Explicacoes": [
-                "A) My friends are French. (are é utilizado com o sujeito na terceira pessoa do plural)",
-                "B) Brazil is a beautiful country. (is é utilizado com o sujeito na terceira pessoa do singular)",
-                "C) I am 20 years old. (am é utilizado com o sujeito na primeira pessoa do singular)"
+                "1 - My friends are French. (are é utilizado com o sujeito na terceira pessoa do plural)",
+                "2 - Brazil is a beautiful country. (is é utilizado com o sujeito na terceira pessoa do singular)",
+                "3 - I am 20 years old. (am é utilizado com o sujeito na primeira pessoa do singular)"
             ],
             "Habilidades": "EF06LI19",
             "RespostaCorreta": [
-                "my friends are french",
-                "brazil is a beautiful country",
-                " i am 20 years old"
+                "are",
+                "is",
+                "am"
             ]
         },
         {
@@ -376,7 +377,7 @@
                 "D) Reading → incorreto, não mencionado no texto"
             ],
             "Habilidades": "EF06LI05",
-            "RespostaCorreta": "Running"
+            "RespostaCorreta": ["Running"]
         },
         {
             "Tipo": "textoAlternativa",
@@ -504,9 +505,9 @@
             "Texto": "",
             "Questao": "Complete as frases a seguir com a forma correta do verbo to be no presente simples:",
             "Alternativas": [
-                "Every summer, my family ________ (travel) to Bahia. ",
-                "My mother ________ (love) the beach,",
-                "but my father ________ (prefer) the mountains."
+                "1 - Every summer, my family ________ (travel) to Bahia. ",
+                "2 - My mother ________ (love) the beach,",
+                "3 - but my father ________ (prefer) the mountains."
             ],
             "Explicacoes": [
                 "Every summer, my family ________ (travel) to Bahia. → travels, porque o sujeito my family é tratado como terceira pessoa do singular no presente simples.",
@@ -523,12 +524,12 @@
         {
             "Tipo": "simplesEscrita",
             "Midia": "",
-            "Texto": "Caso genitivo (‘s)",
+            "Texto": "",
             "Questao": "Transforme as frases abaixo usando o caso genitivo (‘s):",
             "Alternativas": [
-                "The car of my father → __________",
-                "The toys of the children → __________ ",
-                " The name of the teacher → __________"
+                "1 - The car of my father → __________",
+                "2 - The toys of the children → __________ ",
+                "3 - The name of the teacher → __________"
             ],
             "Explicacoes": [
                 "The car of my father → My father's car → correto, uso do genitivo para indicar posse.",

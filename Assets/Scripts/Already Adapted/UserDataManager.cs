@@ -28,7 +28,7 @@ public class UserDataManager : MonoBehaviour
 {
 
     public static UserDataManager userInstance;
-    private FirebaseFirestore DatabaseFirestore;
+    public FirebaseFirestore DatabaseFirestore;
 
     public string faseSelecionada;
     public UserData currentUserData;

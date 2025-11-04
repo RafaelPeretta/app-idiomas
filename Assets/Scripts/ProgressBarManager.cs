@@ -1,4 +1,3 @@
-/*
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -14,16 +13,15 @@ public class ProgressBarManager : MonoBehaviour
         if (phaseUI == null) return;
         if (PhaseManager.Instance == null || PhaseManager.Instance.currentPhase == null) return;
 
-        var itens = PhaseManager.Instance.currentPhase.itens;
-        if (itens == null || itens.Count == 0) return;
+        var fase = PhaseManager.Instance.currentPhase;
+        if (fase.diagnostica_6ano == null || fase.diagnostica_6ano.Count == 0) return;
 
-        // Agora o progresso só considera questões já concluídas
-        float progresso = (float)(phaseUI.currentID) / itens.Count;
+        // Progresso considerando o índice atual da questão
+        float progresso = (float)(phaseUI.currentID) / fase.diagnostica_6ano.Count;
         barraProgresso.value = progresso;
 
         int percent = Mathf.RoundToInt(progresso * 100);
         if (progressoPercentText != null)
-            progressoPercentText.text = "Progresso: " + percent + "%";
+            progressoPercentText.text = $"Progresso: {percent}%";
     }
 }
-*/
