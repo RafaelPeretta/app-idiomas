@@ -1,25 +1,23 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
+﻿using Firebase.Extensions;
+using Firebase.Firestore;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEngine.Video;
+using TMPro;
+using UnityEngine;
 using UnityEngine.Networking;
-using Firebase.Firestore;
-using System.Threading.Tasks;
+using UnityEngine.UI;
+using UnityEngine.Video;
 
 [System.Serializable]
-public class TrilhaLoad
+public class TrilhaLoad_
 {
     public string id;
     public List<string> habilidades;
 }
 
-public class PhaseUIManager : MonoBehaviour
+public class TrilhaUIManager : MonoBehaviour
 {
-
-    private answerQuestion answerScript;
+    private answerTrilha answerScript;
     public ProgressBarManager progressBarManager;
     public GameObject nextBTN;
     public bool questaoRespondida = false;
@@ -73,108 +71,40 @@ public class PhaseUIManager : MonoBehaviour
     public GameObject resultButtonPrefab;
     public Transform resultButtonsParent;
 
-    [Header("Gráfico")]
-    public BarGraphGenerator barGraphGenerator;
-
     [Header("Trilhas")]
-    public List<TrilhaLoad> todasTrilhas;
+    public List<TrilhaLoad_> todasTrilhas;
 
     public int currentID = 0;
     private List<QuestionData> questoes;
 
     private void Awake()
     {
-        if (FirestorePhaseLoader.Instance != null)
-            FirestorePhaseLoader.Instance.OnPhaseLoaded += OnPhaseLoaded;
+        if (TrilhaLoader.Instance != null)
+            TrilhaLoader.Instance.OnTrilhaLoaded += OnTrilhaLoaded;
     }
 
-    private async void Start()
+    private void Start()
     {
-        answerScript = GetComponent<answerQuestion>();
-
+        answerScript = GetComponent<answerTrilha>();
         if (answerScript != null)
             answerScript.onRespostaRegistrada += OnRespostaRegistrada;
 
-        // Carrega as trilhas do Firebase
-        await CarregarTrilhasDoFirebase();
-
-        // Exibe todos os IDs de trilhas carregadas
-        MostrarTodosIDsTrilhas();
-
-        if (PhaseManager.Instance != null && PhaseManager.Instance.currentPhase != null)
+        if (TrilhaManager.Instance != null && TrilhaManager.Instance.currentTrilha != null)
         {
-            questoes = PhaseManager.Instance.currentPhase.diagnostica_6ano;
+            questoes = TrilhaManager.Instance.currentTrilha.questoes;
             ShowItemByID(currentID);
         }
     }
 
-    private async Task CarregarTrilhasDoFirebase()
+    private void OnTrilhaLoaded()
     {
-        todasTrilhas = new List<TrilhaLoad>();
-        var db = FirebaseFirestore.DefaultInstance;
-        var trilhasDocRef = db.Collection("referencias").Document("Trilhas");
-
-        try
+        if (TrilhaManager.Instance != null && TrilhaManager.Instance.currentTrilha != null)
         {
-            var snapshot = await trilhasDocRef.GetSnapshotAsync();
-            if (snapshot.Exists && snapshot.TryGetValue("Lista", out List<object> listaTrilhas))
-            {
-                foreach (var item in listaTrilhas)
-                {
-                    // Cada item deve ser um Dictionary<string, object>
-                    var dict = item as Dictionary<string, object>;
-                    if (dict != null)
-                    {
-                        TrilhaLoad trilha = new TrilhaLoad();
-                        if (dict.TryGetValue("ID", out object idObj))
-                            trilha.id = idObj.ToString();
-                        else
-                            continue;
-
-                        if (dict.TryGetValue("Habilidades", out object habObj))
-                        {
-                            var habList = habObj as IEnumerable<object>;
-                            trilha.habilidades = habList != null ? habList.Select(o => o.ToString()).ToList() : new List<string>();
-                        }
-                        else
-                        {
-                            trilha.habilidades = new List<string>();
-                        }
-
-                        todasTrilhas.Add(trilha);
-                    }
-                }
-            }
-
-            Debug.Log($"Carregadas {todasTrilhas.Count} trilhas do Firebase.");
-        }
-        catch (System.Exception e)
-        {
-            Debug.LogError($"Erro ao carregar trilhas do Firebase: {e.Message}");
+            questoes = TrilhaManager.Instance.currentTrilha.questoes;
+            currentID = 0;
+            ShowItemByID(currentID);
         }
     }
-
-
-
-
-    private void OnPhaseLoaded()
-    {
-        questoes = PhaseManager.Instance.currentPhase.diagnostica_6ano;
-        currentID = 0;
-
-        // Log com os tipos das questões
-        if (questoes != null && questoes.Count > 0)
-        {
-            Debug.Log("Tipos das questões carregadas:");
-            foreach (var q in questoes)
-            {
-                Debug.Log(q.Tipo);
-            }
-        }
-
-        ShowItemByID(currentID);
-    }
-
 
     private void ResetLayouts()
     {
@@ -193,62 +123,11 @@ public class PhaseUIManager : MonoBehaviour
 
         if (questoes == null || questoes.Count == 0 || id >= questoes.Count)
         {
-            if (feedbackLayout != null)
-                feedbackLayout.SetActive(true);
-
-            if (feedbackTexto != null)
-                feedbackTexto.text = "Você concluiu todas as questões!";
-
-            GerarResultadoBotoes();
-
-            var porcentagens = CalcularPorcentagemPorHabilidade();
-
-            foreach (var p in porcentagens)
-                Debug.Log($"Habilidade {p.Key}: {p.Value}%");
-
-            if (barGraphGenerator != null)
-                barGraphGenerator.GerarGrafico(porcentagens);
-
-            // Identifica habilidade mais fraca (abaixo de 80%)
-            string habilidadeMaisFraca = ObterHabilidadeMaisFraca();
-            Debug.Log($"Habilidade mais fraca do aluno (abaixo de 80%): {habilidadeMaisFraca}");
-
-            List<string> trilhasParaSalvar = new List<string>();
-
-            if (!string.IsNullOrEmpty(habilidadeMaisFraca))
-            {
-                string trilhaId = ObterTrilhaParaHabilidade(habilidadeMaisFraca);
-                if (!string.IsNullOrEmpty(trilhaId))
-                {
-                    int trilhaAtualNum = ExtrairNumeroTrilha(trilhaId);
-
-                    // Pega apenas todas as trilhas com número menor que a trilha da habilidade fraca
-                    trilhasParaSalvar = todasTrilhas
-                        .Where(t => ExtrairNumeroTrilha(t.id) < trilhaAtualNum)
-                        .Select(t => t.id)
-                        .ToList();
-                }
-            }
-            else
-            {
-                // Nenhuma habilidade fraca -> salva todas as trilhas
-                trilhasParaSalvar = todasTrilhas.Select(t => t.id).ToList();
-            }
-
-
-            if (trilhasParaSalvar.Count > 0)
-            {
-                Debug.Log($"Trilhas que serão adicionadas ao documento do usuário: {string.Join(", ", trilhasParaSalvar)}");
-                string userId = UserDataManager.userInstance.GetUserId();
-                AtualizarTrilhasUsuario(userId, trilhasParaSalvar);
-            }
-
+            GerarResultadoComFeedback();
             return;
         }
 
-        if (feedbackLayout != null)
-            feedbackLayout.SetActive(false);
-
+        feedbackLayout.SetActive(false);
         var item = questoes[id];
 
         switch (item.Tipo)
@@ -268,12 +147,10 @@ public class PhaseUIManager : MonoBehaviour
             case "imagemAlternativa":
                 imagemAlternativaLayout.SetActive(true);
                 imagemPerguntaText.text = item.Questao;
-
                 if (!string.IsNullOrEmpty(item.Midia))
                     StartCoroutine(CarregarImagemDeURL(item.Midia, imagemQuestao));
                 else
                     imagemQuestao.sprite = null;
-
                 PreencherAlternativas(imgAlt1, imgAlt2, imgAlt3, item.Alternativas);
                 ConfigurarBotoes(imgBtn1, imgBtn2, imgBtn3, imgAlt1, imgAlt2, imgAlt3, item);
                 break;
@@ -281,7 +158,6 @@ public class PhaseUIManager : MonoBehaviour
             case "simplesAlternativa":
                 simplesAlternativaLayout.SetActive(true);
                 simplesPerguntaText.text = item.Questao;
-
                 PreencherAlternativas(simAlt1, simAlt2, simAlt3, item.Alternativas);
                 ConfigurarBotoes(simBtn1, simBtn2, simBtn3, simAlt1, simAlt2, simAlt3, item);
                 break;
@@ -290,7 +166,6 @@ public class PhaseUIManager : MonoBehaviour
                 textoAlternativaLayout.SetActive(true);
                 textoPerguntaText.text = item.Questao;
                 textoConteudoText.text = item.Texto;
-
                 PreencherAlternativas(textoAlt1, textoAlt2, textoAlt3, item.Alternativas);
                 ConfigurarBotoes(textoBtn1, textoBtn2, textoBtn3, textoAlt1, textoAlt2, textoAlt3, item);
                 break;
@@ -298,15 +173,12 @@ public class PhaseUIManager : MonoBehaviour
             case "simplesEscrita":
                 simplesEscritaLayout.SetActive(true);
                 escritaPerguntaText.text = item.Questao;
-
                 escritaAlt1.text = item.Alternativas[0];
                 escritaAlt2.text = item.Alternativas[1];
                 escritaAlt3.text = item.Alternativas[2];
-
                 escritaInput1.text = "";
                 escritaInput2.text = "";
                 escritaInput3.text = "";
-
                 escritaNextBtn.onClick.RemoveAllListeners();
                 escritaNextBtn.onClick.AddListener(() =>
                 {
@@ -316,9 +188,7 @@ public class PhaseUIManager : MonoBehaviour
                     {
                         string respostaComposta =
                             $"{escritaInput1.text}|{escritaInput2.text}|{escritaInput3.text}";
-
                         answerScript.RegistrarResposta(respostaComposta);
-
                         questaoRespondida = true;
                         nextBTN.SetActive(true);
                         progressBarManager?.AtualizarProgress();
@@ -330,7 +200,6 @@ public class PhaseUIManager : MonoBehaviour
         progressBarManager?.AtualizarProgress();
     }
 
-
     private IEnumerator CarregarImagemDeURL(string url, Image destino)
     {
         using (UnityWebRequest request = UnityWebRequestTexture.GetTexture(url))
@@ -338,16 +207,13 @@ public class PhaseUIManager : MonoBehaviour
             yield return request.SendWebRequest();
 
             if (request.result != UnityWebRequest.Result.Success)
-            {
-                Debug.LogError($"[PhaseUIManager] Erro ao carregar imagem: {request.error}");
-            }
+                Debug.LogError($"Erro ao carregar imagem: {request.error}");
             else
             {
                 Texture2D texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
                 Sprite sprite = Sprite.Create(texture,
                     new Rect(0, 0, texture.width, texture.height),
                     Vector2.one * 0.5f);
-
                 destino.sprite = sprite;
             }
         }
@@ -356,7 +222,6 @@ public class PhaseUIManager : MonoBehaviour
     private void PreencherAlternativas(TMP_Text alt1, TMP_Text alt2, TMP_Text alt3, List<string> opcoes)
     {
         if (opcoes == null || opcoes.Count < 3) return;
-
         alt1.text = opcoes[0];
         alt2.text = opcoes[1];
         alt3.text = opcoes[2];
@@ -392,8 +257,8 @@ public class PhaseUIManager : MonoBehaviour
     private void AtualizarCoresBotoes(Button[] botoes, TMP_Text[] textos,
                                       QuestionData item, string respostaUsuario)
     {
-        var lista = item.RespostaCorreta;
-        string correta = lista != null && lista.Count > 0 ? lista[0] : "";
+        string correta = item.RespostaCorreta != null && item.RespostaCorreta.Count > 0
+                         ? item.RespostaCorreta[0] : "";
 
         for (int i = 0; i < botoes.Length; i++)
         {
@@ -432,8 +297,8 @@ public class PhaseUIManager : MonoBehaviour
             GameObject btnObj = Instantiate(resultButtonPrefab, resultButtonsParent);
             var btnScript = btnObj.GetComponent<QuestionResultButton>();
 
-            var lista = r.respostaCorreta;
-            string corretaStr = lista != null && lista.Count > 0 ? lista[0] : "";
+            string corretaStr = r.respostaCorreta != null && r.respostaCorreta.Count > 0
+                                ? r.respostaCorreta[0] : "";
             bool estaCorreta = r.respostaUsuario == corretaStr;
 
             btnScript.Configurar(
@@ -446,121 +311,85 @@ public class PhaseUIManager : MonoBehaviour
         }
     }
 
-    public Dictionary<string, float> CalcularPorcentagemPorHabilidade()
+    // ================= Função nova: gerar resultado com feedback =================
+    private void GerarResultadoComFeedback()
     {
-        if (answerScript == null || answerScript.Respostas == null)
-            return new Dictionary<string, float>();
-
-        Dictionary<string, int> totalPorHabilidade = new Dictionary<string, int>();
-        Dictionary<string, int> acertosPorHabilidade = new Dictionary<string, int>();
-
-        foreach (var r in answerScript.Respostas)
+        if (answerScript == null || answerScript.Respostas == null || answerScript.Respostas.Count == 0)
         {
-            string correta = r.respostaCorreta != null && r.respostaCorreta.Count > 0
-                             ? r.respostaCorreta[0]
-                             : "";
-
-            bool acertou = r.respostaUsuario == correta;
-
-            foreach (string hab in r.habilidades)
-            {
-                if (!totalPorHabilidade.ContainsKey(hab))
-                    totalPorHabilidade[hab] = 0;
-                if (!acertosPorHabilidade.ContainsKey(hab))
-                    acertosPorHabilidade[hab] = 0;
-
-                totalPorHabilidade[hab]++;
-                if (acertou)
-                    acertosPorHabilidade[hab]++;
-            }
-        }
-
-        Dictionary<string, float> porcentagens = new Dictionary<string, float>();
-        foreach (var kvp in totalPorHabilidade)
-        {
-            string habilidade = kvp.Key;
-            int total = kvp.Value;
-            int acertos = acertosPorHabilidade[habilidade];
-
-            porcentagens[habilidade] = (float)acertos / total * 100f;
-        }
-
-        return porcentagens;
-    }
-
-    public string ObterHabilidadeMaisFraca()
-    {
-        var porcentagens = CalcularPorcentagemPorHabilidade();
-        if (porcentagens == null || porcentagens.Count == 0)
-            return null;
-
-        var abaixo80 = porcentagens.Where(kvp => kvp.Value < 80f).ToList();
-        if (abaixo80.Count == 0) return null;
-
-        float menorValor = abaixo80.Min(kvp => kvp.Value);
-        var maisFracas = abaixo80.Where(kvp => kvp.Value == menorValor)
-                                 .Select(kvp => kvp.Key)
-                                 .ToList();
-
-        if (maisFracas.Contains("EF06LI08"))
-            return "EF06LI08";
-
-        return maisFracas[0];
-    }
-
-    public string ObterTrilhaParaHabilidade(string habilidadeMaisFraca)
-    {
-        if (string.IsNullOrEmpty(habilidadeMaisFraca) || todasTrilhas == null || todasTrilhas.Count == 0)
-            return null;
-
-        var trilhasOrdenadas = todasTrilhas
-            .OrderBy(t => ExtrairNumeroTrilha(t.id))
-            .ToList();
-
-        foreach (var trilha in trilhasOrdenadas)
-        {
-            if (trilha.habilidades.Contains(habilidadeMaisFraca))
-                return trilha.id;
-        }
-
-        return null;
-    }
-
-    private int ExtrairNumeroTrilha(string trilhaId)
-    {
-        if (string.IsNullOrEmpty(trilhaId)) return 0;
-        string numeroStr = new string(trilhaId.Reverse().TakeWhile(char.IsDigit).Reverse().ToArray());
-        int numero;
-        int.TryParse(numeroStr, out numero);
-        return numero;
-    }
-
-    private async void AtualizarTrilhasUsuario(string userId, List<string> trilhasParaSalvar)
-    {
-        if (string.IsNullOrEmpty(userId) || trilhasParaSalvar == null || trilhasParaSalvar.Count == 0) return;
-
-        var db = FirebaseFirestore.DefaultInstance;
-        var usuarioRef = db.Collection("Users").Document(userId);
-
-        Dictionary<string, object> updates = new Dictionary<string, object>
-        {
-            { "trilhas", trilhasParaSalvar }
-        };
-
-        await usuarioRef.SetAsync(updates, SetOptions.MergeAll);
-        Debug.Log($"Documento do usuário {userId} atualizado com sucesso.");
-    }
-
-    private void MostrarTodosIDsTrilhas()
-    {
-        if (todasTrilhas == null || todasTrilhas.Count == 0)
-        {
-            Debug.Log("Nenhuma trilha carregada.");
+            feedbackLayout.SetActive(true);
+            feedbackTexto.text = "Nenhuma resposta registrada.";
             return;
         }
 
-        string ids = string.Join(", ", todasTrilhas.Select(t => t.id));
-        Debug.Log("IDs de todas as trilhas carregadas: " + ids);
+        int totalQuestoes = answerScript.Respostas.Count;
+        int totalAcertos = 0;
+
+        foreach (var r in answerScript.Respostas)
+        {
+            string corretaStr = (r.respostaCorreta != null && r.respostaCorreta.Count > 0) ? r.respostaCorreta[0] : "";
+            if (r.respostaUsuario == corretaStr)
+                totalAcertos++;
+        }
+
+        float porcentagem = (float)totalAcertos / totalQuestoes * 100f;
+
+        feedbackLayout.SetActive(true);
+        nextBTN.SetActive(false); // desativa botão de avançar ao final
+
+        if (porcentagem >= 80f)
+        {
+            feedbackTexto.text = $"Parabéns! Você foi aprovado com {porcentagem:0}% de acertos.";
+            if (TrilhaManager.Instance?.currentTrilha != null)
+                SalvarTrilhaAprovada(TrilhaManager.Instance.currentTrilha.id);
+        }
+        else
+        {
+            feedbackTexto.text = $"Você foi reprovado com {porcentagem:0}% de acertos. Tente novamente!";
+        }
+
+        GerarResultadoBotoes();
+    }
+
+    // ================= Função nova: salvar trilha aprovada =================
+    private void SalvarTrilhaAprovada(string trilhaID)
+    {
+        if (string.IsNullOrEmpty(trilhaID))
+            return;
+
+        var user = Firebase.Auth.FirebaseAuth.DefaultInstance.CurrentUser;
+        if (user == null)
+        {
+            Debug.LogWarning("[TrilhaUIManager] Usuário não logado.");
+            return;
+        }
+
+        DocumentReference userDoc = FirebaseFirestore.DefaultInstance
+            .Collection("Users").Document(user.UserId);
+
+        userDoc.GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsFaulted || !task.IsCompleted || task.Result == null)
+            {
+                Debug.LogError("[TrilhaUIManager] Erro ao acessar documento do usuário.");
+                return;
+            }
+
+            List<object> trilhasAtuais = new List<object>();
+            if (task.Result.Exists && task.Result.TryGetValue("trilhas", out object trilhasObj) && trilhasObj is IEnumerable<object> listObj)
+                trilhasAtuais = new List<object>(listObj);
+
+            if (!trilhasAtuais.Contains(trilhaID))
+                trilhasAtuais.Add(trilhaID);
+
+            userDoc.SetAsync(new Dictionary<string, object> { { "trilhas", trilhasAtuais } }, SetOptions.MergeAll)
+                .ContinueWithOnMainThread(setTask =>
+                {
+                    if (setTask.IsCompleted)
+                        Debug.Log($"[TrilhaUIManager] Trilha '{trilhaID}' salva com sucesso.");
+                    else
+                        Debug.LogError($"[TrilhaUIManager] Erro ao salvar trilha: {setTask.Exception}");
+                });
+        });
     }
 
 }

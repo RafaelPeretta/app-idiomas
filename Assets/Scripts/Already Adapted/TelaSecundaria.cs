@@ -2,34 +2,39 @@ using UnityEngine;
 
 public class TelaSecundariaController : MonoBehaviour
 {
-    [Header("Tela secundária controlada por este script")]
-    [Tooltip("Arraste aqui o GameObject da tela secundária que será exibida por cima.")]
-    public GameObject telaSecundaria;
+    [Header("Telas secundárias controladas por este script")]
+    public GameObject telaSecundaria1;
+    public GameObject telaSecundaria2;
 
     private void Start()
     {
-        // Garante que a tela comece desativada
-        if (telaSecundaria != null)
-            telaSecundaria.SetActive(false);
-        else
-            Debug.LogWarning("[TelaSecundariaController] Nenhuma tela secundária definida!");
+        if (telaSecundaria1 != null)
+            telaSecundaria1.SetActive(false);
+        if (telaSecundaria2 != null)
+            telaSecundaria2.SetActive(false);
     }
 
-    /// <summary>
-    /// Ativa a tela secundária.
-    /// </summary>
-    public void AbrirTela()
+    public void AbrirTela1()
     {
-        if (telaSecundaria != null)
-            telaSecundaria.SetActive(true);
+        if (telaSecundaria1 != null)
+            telaSecundaria1.SetActive(true);
     }
 
-    /// <summary>
-    /// Desativa a tela secundária.
-    /// </summary>
-    public void FecharTela()
+    public void FecharTela1()
     {
-        if (telaSecundaria != null)
-            telaSecundaria.SetActive(false);
+        if (telaSecundaria1 != null)
+            telaSecundaria1.SetActive(false);
+    }
+
+    public void AbrirTela2()
+    {
+        if (telaSecundaria2 != null)
+            telaSecundaria2.SetActive(true);
+    }
+
+    public void FecharTela2()
+    {
+        if (telaSecundaria2 != null)
+            telaSecundaria2.SetActive(false);
     }
 }

@@ -8876,6 +8876,8 @@ GameObject:
   - component: {fileID: 6954860288225192822}
   - component: {fileID: 6954860288225192823}
   - component: {fileID: 6954860288225192824}
+  - component: {fileID: 6954860288225192825}
+  - component: {fileID: 6954860288225192826}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -8984,6 +8986,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d9faac4a5829641b8014aaf813c8c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6954860288225192825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276656501047659376}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb755ea10d6e3214eac0923e38c12d38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6954860288225192826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276656501047659376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b65992b6e7f02704dac1488ad6f7d640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTrilha:
+    questoes: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

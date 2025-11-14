@@ -11,15 +11,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/QuestionList.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Minigame.unity
     guid: 5a93b7af5566b394ba7071986b6077df
   - enabled: 1
     path: Assets/Scenes/Auth Beta.unity
     guid: e9ce878b67901f445b33c0b4866b0293
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Simulado.unity
     guid: 46b631b77f930e04ba05929c4f107d37
+  - enabled: 1
+    path: Assets/Scenes/QuestionTrilha.unity
+    guid: 2936771d93aa4944784a3aa51d26c861
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
