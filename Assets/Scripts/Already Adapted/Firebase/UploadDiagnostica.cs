@@ -41,9 +41,10 @@ public class DiagnosticaUploader : MonoBehaviour
                 {"Texto", q.Texto},
                 {"Questao", q.Questao},
                 {"Alternativas", q.Alternativas},
-                {"Explicacoes", q.Explicacoes},
-                {"Habilidades", q.Habilidades},
-                {"RespostaCorreta", q.RespostaCorreta} // já lista de strings
+                {"Explicacoes", q.Explicacoes},      // agora é string
+                {"Objetivo", q.Objetivo},            // novo campo (hipótese)
+                {"Habilidades", q.Habilidades},      // agora array/list
+                {"RespostaCorreta", q.RespostaCorreta}
             };
 
             questoesList.Add(questaoDict);
@@ -77,8 +78,13 @@ public class Questoes
     public string Midia;
     public string Texto;
     public string Questao;
+
     public List<string> Alternativas;
-    public List<string> Explicacoes;
-    public string Habilidades;
-    public List<string> RespostaCorreta; // agora sempre lista
+
+    public string Explicacoes;            // ALTERADO: agora é string
+    public string Objetivo;               // NOVO CAMPO
+
+    public List<string> Habilidades;      // ALTERADO: agora é lista/array
+
+    public List<string> RespostaCorreta;  // permanece lista
 }

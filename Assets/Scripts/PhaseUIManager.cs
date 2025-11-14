@@ -23,25 +23,25 @@ public class PhaseUIManager : MonoBehaviour
     [Header("Video Alternativa")]
     public VideoPlayer videoPlayer;
     public TMP_Text videoPerguntaText;
-    public TMP_Text videoAlt1, videoAlt2, videoAlt3, videoAlt4;
-    public Button videoBtn1, videoBtn2, videoBtn3, videoBtn4;
+    public TMP_Text videoAlt1, videoAlt2, videoAlt3;
+    public Button videoBtn1, videoBtn2, videoBtn3;
 
     [Header("Imagem Alternativa")]
     public Image imagemQuestao;
     public TMP_Text imagemPerguntaText;
-    public TMP_Text imgAlt1, imgAlt2, imgAlt3, imgAlt4;
-    public Button imgBtn1, imgBtn2, imgBtn3, imgBtn4;
+    public TMP_Text imgAlt1, imgAlt2, imgAlt3;
+    public Button imgBtn1, imgBtn2, imgBtn3;
 
     [Header("Simples Alternativa")]
     public TMP_Text simplesPerguntaText;
-    public TMP_Text simAlt1, simAlt2, simAlt3, simAlt4;
-    public Button simBtn1, simBtn2, simBtn3, simBtn4;
+    public TMP_Text simAlt1, simAlt2, simAlt3;
+    public Button simBtn1, simBtn2, simBtn3;
 
     [Header("Texto Alternativa")]
     public TMP_Text textoPerguntaText;
     public TMP_Text textoConteudoText;
-    public TMP_Text textoAlt1, textoAlt2, textoAlt3, textoAlt4;
-    public Button textoBtn1, textoBtn2, textoBtn3, textoBtn4;
+    public TMP_Text textoAlt1, textoAlt2, textoAlt3;
+    public Button textoBtn1, textoBtn2, textoBtn3;
 
     [Header("Simples Escrita")]
     public TMP_Text escritaPerguntaText;
@@ -127,14 +127,18 @@ public class PhaseUIManager : MonoBehaviour
         {
             case "videoAlternativa":
                 videoAlternativaLayout.SetActive(true);
+
                 if (videoPlayer != null && !string.IsNullOrEmpty(item.Midia))
                 {
                     videoPlayer.url = item.Midia;
                     videoPlayer.Play();
                 }
+
                 videoPerguntaText.text = item.Questao;
-                PreencherAlternativas(videoAlt1, videoAlt2, videoAlt3, videoAlt4, item.Alternativas);
-                ConfigurarBotoes(videoBtn1, videoBtn2, videoBtn3, videoBtn4, videoAlt1, videoAlt2, videoAlt3, videoAlt4, item);
+
+                PreencherAlternativas(videoAlt1, videoAlt2, videoAlt3, item.Alternativas);
+                ConfigurarBotoes(videoBtn1, videoBtn2, videoBtn3,
+                                 videoAlt1, videoAlt2, videoAlt3, item);
                 break;
 
             case "imagemAlternativa":
@@ -146,35 +150,37 @@ public class PhaseUIManager : MonoBehaviour
                 else
                     imagemQuestao.sprite = null;
 
-                PreencherAlternativas(imgAlt1, imgAlt2, imgAlt3, imgAlt4, item.Alternativas);
-                ConfigurarBotoes(imgBtn1, imgBtn2, imgBtn3, imgBtn4, imgAlt1, imgAlt2, imgAlt3, imgAlt4, item);
+                PreencherAlternativas(imgAlt1, imgAlt2, imgAlt3, item.Alternativas);
+                ConfigurarBotoes(imgBtn1, imgBtn2, imgBtn3,
+                                 imgAlt1, imgAlt2, imgAlt3, item);
                 break;
 
             case "simplesAlternativa":
                 simplesAlternativaLayout.SetActive(true);
                 simplesPerguntaText.text = item.Questao;
-                PreencherAlternativas(simAlt1, simAlt2, simAlt3, simAlt4, item.Alternativas);
-                ConfigurarBotoes(simBtn1, simBtn2, simBtn3, simBtn4, simAlt1, simAlt2, simAlt3, simAlt4, item);
+
+                PreencherAlternativas(simAlt1, simAlt2, simAlt3, item.Alternativas);
+                ConfigurarBotoes(simBtn1, simBtn2, simBtn3,
+                                 simAlt1, simAlt2, simAlt3, item);
                 break;
 
             case "textoAlternativa":
                 textoAlternativaLayout.SetActive(true);
                 textoPerguntaText.text = item.Questao;
                 textoConteudoText.text = item.Texto;
-                PreencherAlternativas(textoAlt1, textoAlt2, textoAlt3, textoAlt4, item.Alternativas);
-                ConfigurarBotoes(textoBtn1, textoBtn2, textoBtn3, textoBtn4, textoAlt1, textoAlt2, textoAlt3, textoAlt4, item);
+
+                PreencherAlternativas(textoAlt1, textoAlt2, textoAlt3, item.Alternativas);
+                ConfigurarBotoes(textoBtn1, textoBtn2, textoBtn3,
+                                 textoAlt1, textoAlt2, textoAlt3, item);
                 break;
 
             case "simplesEscrita":
                 simplesEscritaLayout.SetActive(true);
                 escritaPerguntaText.text = item.Questao;
 
-                if (item.Alternativas != null && item.Alternativas.Count >= 3)
-                {
-                    escritaAlt1.text = item.Alternativas[0];
-                    escritaAlt2.text = item.Alternativas[1];
-                    escritaAlt3.text = item.Alternativas[2];
-                }
+                escritaAlt1.text = item.Alternativas[0];
+                escritaAlt2.text = item.Alternativas[1];
+                escritaAlt3.text = item.Alternativas[2];
 
                 escritaInput1.text = "";
                 escritaInput2.text = "";
@@ -187,7 +193,9 @@ public class PhaseUIManager : MonoBehaviour
                         !string.IsNullOrEmpty(escritaInput2.text) &&
                         !string.IsNullOrEmpty(escritaInput3.text))
                     {
-                        string respostaComposta = $"{escritaInput1.text}|{escritaInput2.text}|{escritaInput3.text}";
+                        string respostaComposta =
+                            $"{escritaInput1.text}|{escritaInput2.text}|{escritaInput3.text}";
+
                         answerScript.RegistrarResposta(respostaComposta);
 
                         questaoRespondida = true;
@@ -214,28 +222,30 @@ public class PhaseUIManager : MonoBehaviour
             else
             {
                 Texture2D texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-                Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one * 0.5f);
+                Sprite sprite = Sprite.Create(texture,
+                    new Rect(0, 0, texture.width, texture.height),
+                    Vector2.one * 0.5f);
+
                 destino.sprite = sprite;
-                Debug.Log("[PhaseUIManager] Imagem carregada com sucesso da URL.");
             }
         }
     }
 
-    private void PreencherAlternativas(TMP_Text alt1, TMP_Text alt2, TMP_Text alt3, TMP_Text alt4, List<string> opcoes)
+    private void PreencherAlternativas(TMP_Text alt1, TMP_Text alt2, TMP_Text alt3, List<string> opcoes)
     {
-        if (opcoes == null || opcoes.Count < 4) return;
+        if (opcoes == null || opcoes.Count < 3) return;
+
         alt1.text = opcoes[0];
         alt2.text = opcoes[1];
         alt3.text = opcoes[2];
-        alt4.text = opcoes[3];
     }
 
-    private void ConfigurarBotoes(Button btn1, Button btn2, Button btn3, Button btn4,
-                                  TMP_Text alt1, TMP_Text alt2, TMP_Text alt3, TMP_Text alt4,
+    private void ConfigurarBotoes(Button btn1, Button btn2, Button btn3,
+                                  TMP_Text alt1, TMP_Text alt2, TMP_Text alt3,
                                   QuestionData item)
     {
-        Button[] botoes = { btn1, btn2, btn3, btn4 };
-        TMP_Text[] textos = { alt1, alt2, alt3, alt4 };
+        Button[] botoes = { btn1, btn2, btn3 };
+        TMP_Text[] textos = { alt1, alt2, alt3 };
 
         for (int i = 0; i < botoes.Length; i++)
         {
@@ -249,6 +259,7 @@ public class PhaseUIManager : MonoBehaviour
             {
                 answerScript.RegistrarResposta(textos[index].text);
                 AtualizarCoresBotoes(botoes, textos, item, textos[index].text);
+
                 questaoRespondida = true;
                 nextBTN.SetActive(true);
                 progressBarManager?.AtualizarProgress();
@@ -256,18 +267,14 @@ public class PhaseUIManager : MonoBehaviour
         }
     }
 
-    private void AtualizarCoresBotoes(Button[] botoes, TMP_Text[] textos, QuestionData item, string respostaUsuario)
+    private void AtualizarCoresBotoes(Button[] botoes, TMP_Text[] textos,
+                                      QuestionData item, string respostaUsuario)
     {
-        string correta = "";
+        var lista = item.RespostaCorreta;
 
-        if (item.Tipo != "simplesEscrita" && item.RespostaCorreta is List<object> lista && lista.Count > 0)
-        {
-            correta = lista[0]?.ToString();
-        }
-        else
-        {
-            correta = item.RespostaCorreta?.ToString();
-        }
+        string correta = lista != null && lista.Count > 0
+                         ? lista[0]
+                         : "";
 
         for (int i = 0; i < botoes.Length; i++)
         {
@@ -277,7 +284,7 @@ public class PhaseUIManager : MonoBehaviour
 
             if (textos[i].text == respostaUsuario)
                 img.color = respostaUsuario == correta ? corAlternativaAcerto : corAlternativaErro;
-            else if (textos[i].text == correta && respostaUsuario != correta)
+            else if (textos[i].text == correta)
                 img.color = corAlternativaAcerto;
         }
     }
@@ -306,21 +313,21 @@ public class PhaseUIManager : MonoBehaviour
             GameObject btnObj = Instantiate(resultButtonPrefab, resultButtonsParent);
             var btnScript = btnObj.GetComponent<QuestionResultButton>();
 
-            string corretaStr = "";
-            bool estaCorreta = false;
+            var lista = r.respostaCorreta;
 
-            if (r.respostaCorreta is List<object> lista && lista.Count > 0)
-            {
-                corretaStr = lista[0]?.ToString();
-                estaCorreta = r.respostaUsuario == corretaStr;
-            }
-            else
-            {
-                corretaStr = r.respostaCorreta?.ToString();
-                estaCorreta = r.respostaUsuario == corretaStr;
-            }
+            string corretaStr = lista != null && lista.Count > 0
+                                ? lista[0]
+                                : "";
 
-            btnScript.Configurar(r.idQuestao, r.respostaUsuario, corretaStr, r.habilidade, estaCorreta);
+            bool estaCorreta = r.respostaUsuario == corretaStr;
+
+            btnScript.Configurar(
+                r.idQuestao,
+                r.respostaUsuario,
+                corretaStr,
+                string.Join(", ", r.habilidades),
+                estaCorreta
+            );
         }
     }
 }

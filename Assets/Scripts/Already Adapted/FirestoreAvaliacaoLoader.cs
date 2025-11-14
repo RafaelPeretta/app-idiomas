@@ -21,7 +21,6 @@ public class FirestorePhaseLoader : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // Espera o UserDataManager inicializar o Firestore
         if (UserDataManager.userInstance != null)
         {
             if (UserDataManager.userInstance.DatabaseFirestore != null)
@@ -30,7 +29,6 @@ public class FirestorePhaseLoader : MonoBehaviour
             }
             else
             {
-                // Firestore ainda não inicializado, espera alguns frames
                 StartCoroutine(WaitForFirestore());
             }
         }
@@ -87,6 +85,7 @@ public class FirestorePhaseLoader : MonoBehaviour
             }
 
             List<QuestionData> loadedQuestions = new List<QuestionData>();
+
             foreach (var q in questoesList)
             {
                 if (q is Dictionary<string, object> questaoDict)
@@ -97,11 +96,25 @@ public class FirestorePhaseLoader : MonoBehaviour
                         Midia = questaoDict.TryGetValue("Midia", out var midia) ? midia?.ToString() : "",
                         Texto = questaoDict.TryGetValue("Texto", out var texto) ? texto?.ToString() : "",
                         Questao = questaoDict.TryGetValue("Questao", out var questao) ? questao?.ToString() : "",
-                        Habilidades = questaoDict.TryGetValue("Habilidades", out var hab) ? hab?.ToString() : "",
-                        Alternativas = questaoDict.TryGetValue("Alternativas", out var alt) ? ConvertToStringList(alt) : new List<string>(),
-                        Explicacoes = questaoDict.TryGetValue("Explicacoes", out var exp) ? ConvertToStringList(exp) : new List<string>(),
-                        RespostaCorreta = questaoDict.TryGetValue("RespostaCorreta", out var resp) ? resp : null
+                        Objetivo = questaoDict.TryGetValue("Objetivo", out var objetivo) ? objetivo?.ToString() : "",
+
+                        // Agora Explicações é STRING
+                        Explicacoes = questaoDict.TryGetValue("Explicacoes", out var exp) ? exp?.ToString() : "",
+
+                        // Agora Habilidades é LISTA
+                        Habilidades = questaoDict.TryGetValue("Habilidades", out var hab)
+                            ? ConvertToStringList(hab)
+                            : new List<string>(),
+
+                        Alternativas = questaoDict.TryGetValue("Alternativas", out var alt)
+                            ? ConvertToStringList(alt)
+                            : new List<string>(),
+
+                        RespostaCorreta = questaoDict.TryGetValue("RespostaCorreta", out var resp)
+                            ? ConvertToStringList(resp)
+                            : new List<string>()
                     };
+
                     loadedQuestions.Add(question);
                 }
             }
@@ -127,6 +140,7 @@ public class FirestorePhaseLoader : MonoBehaviour
     private List<string> ConvertToStringList(object firestoreList)
     {
         List<string> result = new List<string>();
+
         if (firestoreList is IEnumerable<object> list)
         {
             foreach (var item in list)
@@ -136,6 +150,7 @@ public class FirestorePhaseLoader : MonoBehaviour
         {
             result.Add(firestoreList.ToString());
         }
+
         return result;
     }
 }

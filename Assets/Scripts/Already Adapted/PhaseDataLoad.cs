@@ -21,10 +21,14 @@ public class QuestionData
     public string Midia;
     public string Texto;
     public string Questao;
-    public List<string> Alternativas;
-    public List<string> Explicacoes;
-    public string Habilidades;
 
-    // Pode ser string ou lista de strings — usamos object para suportar ambos
-    public object RespostaCorreta;
+    public string Objetivo; // NOVO CAMPO
+
+    public List<string> Alternativas;
+
+    public string Explicacoes; // AGORA É STRING
+
+    public List<string> Habilidades; // AGORA É ARRAY
+
+    public List<string> RespostaCorreta; // SEMPRE LISTA
 }

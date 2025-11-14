@@ -1,7 +1,7 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro; // necess�rio para TextMeshPro
+using TMPro;
 
 public class HabilidadeFeedbackUI : MonoBehaviour
 {
@@ -19,47 +19,57 @@ public class HabilidadeFeedbackUI : MonoBehaviour
 
     public void GerarFeedbackVisual(List<answerQuestion.RespostaUsuario> respostas)
     {
-        Dictionary<string, (int corretas, int total)> contagemHabilidades = new Dictionary<string, (int, int)>();
+        // Agora habilidades são listas → precisamos expandir todas
+        Dictionary<string, (int corretas, int total)> contagem = new Dictionary<string, (int, int)>();
 
         foreach (var r in respostas)
         {
-            if (!contagemHabilidades.ContainsKey(r.habilidade))
-                contagemHabilidades[r.habilidade] = (0, 0);
-
-            var atual = contagemHabilidades[r.habilidade];
-            bool estaCorreta = false;
-
-            if (r.respostaCorreta is List<object> lista)
+            foreach (var habilidade in r.habilidades)
             {
-                if (r.respostaUsuario.Contains("|"))
+                if (!contagem.ContainsKey(habilidade))
+                    contagem[habilidade] = (0, 0);
+
+                var atual = contagem[habilidade];
+
+                bool estaCorreta = false;
+
+                // Agora respostaCorreta é List<string>
+                if (r.respostaCorreta != null && r.respostaCorreta.Count > 0)
                 {
-                    string[] respostasUsuario = r.respostaUsuario.Split('|');
-                    estaCorreta = true;
-                    for (int i = 0; i < lista.Count; i++)
+                    if (r.respostaUsuario.Contains("|"))
                     {
-                        if (i >= respostasUsuario.Length || respostasUsuario[i] != lista[i]?.ToString())
+                        // resposta múltipla
+                        string[] usuarioSplit = r.respostaUsuario.Split('|');
+                        estaCorreta = usuarioSplit.Length == r.respostaCorreta.Count;
+
+                        for (int i = 0; i < usuarioSplit.Length && i < r.respostaCorreta.Count; i++)
                         {
-                            estaCorreta = false;
-                            break;
+                            if (usuarioSplit[i] != r.respostaCorreta[i])
+                            {
+                                estaCorreta = false;
+                                break;
+                            }
                         }
                     }
+                    else
+                    {
+                        // resposta única
+                        estaCorreta = r.respostaUsuario == r.respostaCorreta[0];
+                    }
                 }
-                else
-                {
-                    estaCorreta = r.respostaUsuario == lista[0]?.ToString();
-                }
-            }
 
-            contagemHabilidades[r.habilidade] = (atual.corretas + (estaCorreta ? 1 : 0), atual.total + 1);
+                contagem[habilidade] = (atual.corretas + (estaCorreta ? 1 : 0), atual.total + 1);
+            }
         }
 
-        // Limpa o container antes de recriar os bot�es
+        // Limpa botões anteriores
         foreach (Transform child in containerBotoes)
             Destroy(child.gameObject);
 
         listaHabilidadesFinal = new List<HabilidadeResultado>();
 
-        foreach (var entry in contagemHabilidades)
+        // Criar botões por habilidade
+        foreach (var entry in contagem)
         {
             string habilidade = entry.Key;
             int corretas = entry.Value.corretas;
@@ -75,26 +85,23 @@ public class HabilidadeFeedbackUI : MonoBehaviour
 
             GameObject botao = Instantiate(botaoPrefab, containerBotoes);
 
-            // Tenta encontrar TextMeshProUGUI primeiro
             TMP_Text tmpTexto = botao.GetComponentInChildren<TMP_Text>();
             if (tmpTexto != null)
-            {
                 tmpTexto.text = habilidade;
-            }
             else
             {
-                // Fallback para o Text padr�o
-                Text textoBotao = botao.GetComponentInChildren<Text>();
-                if (textoBotao != null)
-                    textoBotao.text = habilidade;
+                Text texto = botao.GetComponentInChildren<Text>();
+                if (texto != null)
+                    texto.text = habilidade;
             }
 
-            // Define a cor do bot�o
-            Image imagemBotao = botao.GetComponent<Image>();
-            if (imagemBotao != null)
-                imagemBotao.color = aprovado ? new Color(0.3f, 0.8f, 0.3f) : new Color(0.9f, 0.3f, 0.3f);
+            Image img = botao.GetComponent<Image>();
+            if (img != null)
+                img.color = aprovado
+                    ? new Color(0.3f, 0.8f, 0.3f)
+                    : new Color(0.9f, 0.3f, 0.3f);
 
-            Debug.Log($"Habilidade: {habilidade} | Acertos: {corretas}/{total} | Aprovado? {aprovado}");
+            Debug.Log($"[HabilidadeFeedbackUI] Hab: {habilidade} | Acertos: {corretas}/{total} | Aprovado: {aprovado}");
         }
     }
 }

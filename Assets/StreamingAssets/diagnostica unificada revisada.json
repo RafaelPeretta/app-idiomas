@@ -1,587 +1,319 @@
 {
-    "diagnostica_6ano": [
-        {
-            "Tipo": "imagemAlternativa",
-            "Midia": "",
-            "Texto": "",
-            "Questao": "What color is the sky on a sunny day?",
-            "Alternativas": [
-                "Blue",
-                "Red",
-                "Yellow",
-                "Green"
-            ],
-            "Explicacoes": [
-                "Blue é Azul e está correto",
-                "Red é vermelho",
-                "Yellow é amarelo.",
-                "Green é verde"
-            ],
-            "Habilidades": "EF06LI19",
-            "RespostaCorreta": ["Blue"]
-        },
-        {
-            "Tipo": "simplesAlternativa",
-            "Midia": "",
-            "Texto": "",
-            "Questao": "Complete the sentence: 'I ___ a student.'",
-            "Alternativas": [
-                "am",
-                "is",
-                "are",
-                "be"
-            ],
-            "Explicacoes": [
-                "Foca no verbo 'to be' — am é usado com 'I'.",
-                "Errado — 'is' é usado com he/she/it.",
-                "Errado — 'are' é usado com you/we/they.",
-                "Errado — 'be' é a forma base do verbo."
-            ],
-            "Habilidades": "EF06LI19",
-            "RespostaCorreta": ["am"]
-        },
-        {
-            "Tipo": "simplesAlternativa",
-            "Midia": "",
-            "Texto": "",
-            "Questao": "Choose the correct plural form: 'One apple, two ___.'",
-            "Alternativas": [
-                "apple",
-                "apples",
-                "pineapple",
-                "pineapples"
-            ],
-            "Explicacoes": [
-                "Errado — falta o 's' do plural.",
-                "Correto — plural regular de substantivo comum.",
-                "Errado — pineapple é abacaxi",
-                "Errado — pineapples é o plural de abacaxi"
-            ],
-            "Habilidades": "EF06LI19",
-            "RespostaCorreta": ["apples"]
-        },
-        {
-            "Tipo": "simplesAlternativa",
-            "Midia": "",
-            "Texto": "",
-            "Questao": "What is the opposite of 'cold'?",
-            "Alternativas": [
-                "Hot",
-                "Cool",
-                "Warm",
-                "Cold"
-            ],
-            "Explicacoes": [
-                "Correta — 'Hot' é o antônimo de 'cold'.",
-                "Errado — 'Cool' é sinônimo parcial, não antônimo.",
-                "Errado — 'Warm' é intermediário entre hot e cold.",
-                "Errado — 'Cold' é a própria palavra, não seu oposto."
-            ],
-            "Habilidades": "EF06LI19",
-            "RespostaCorreta": ["Hot"]
-        },
-        {
-            "Tipo": "imagemAlternativa",
-            "Midia": "",
-            "Texto": "",
-            "Questao": "Where do students study?",
-            "Alternativas": [
-                "At home",
-                "At school",
-                "At the park",
-                "In the car"
-            ],
-            "Explicacoes": [
-                "Possível, mas não o local principal.",
-                "Correta — 'At school' é o local típico de estudo.",
-                "Errado — não é ambiente de estudo.",
-                "Errado — não faz sentido no contexto."
-            ],
-            "Habilidades": "EF06LI19",
-            "RespostaCorreta": ["At school"]
-        },
-        {
-            "Tipo": "textoAlternativa",
-            "Midia": "",
-            "Texto": "Assinale a alternativa que apresenta a correta correspondência, na forma interrogativa, para a frase a seguir:",
-            "Questao": "My cousin was in Paris last week.",
-            "Alternativas": [
-                "My cousin was in Paris last week?",
-                "In Paris, my cousin was last week?",
-                "Last week, my cousin was in Paris?",
-                "Was my cousin in Paris last week?"
-            ],
-            "Explicacoes": [
-                "Errado — mantém a estrutura afirmativa, apenas adicionando ponto de interrogação.",
-                "Errado — ordem das palavras não corresponde à estrutura interrogativa em inglês.",
-                "Errado — ordem das palavras não corresponde à estrutura interrogativa em inglês.",
-                "Correto — o verbo ‘was’ vem antes do sujeito (‘my cousin’), formando pergunta adequada."
-            ],
-            "Habilidades": "EF06LI19",
-            "RespostaCorreta": ["Was my cousin in Paris last week?"]
-        },
-        {
-            "Tipo": "simplesAlternativa",
-            "Midia": "",
-            "Texto": "",
-            "Questao": "Assinale a única alternativa em que não há nenhum erro em relação à conjugação do verb to be. ",
-            "Alternativas": [
-                "My friends and I am happy.",
-                "Julie were at school yesterday.",
-                "My family will be together for Fatherʼs Day.",
-                "Joe arenʼt at the beach."
-            ],
-            "Explicacoes": [
-                "Errado — o correto seria 'are', pois o sujeito é plural (we).",
-                "Errado — o correto seria 'was', pois 'Julie' está na 3ª pessoa do singular.",
-                "Correto — o verbo 'will be' está conjugado adequadamente no futuro.",
-                "Errado — o correto seria 'isn’t', pois 'Joe' é singular."
-            ],
-            "Habilidades": "EF06LI20",
-            "RespostaCorreta": ["My family will be together for Fatherʼs Day."]
-        },
-        {
-            "Tipo": "simplesEscrita",
-            "Midia": "",
-            "Questao": " Complete os verbos com a forma correta do verbo to be (presente simple):",
-            "Alternativas": [
-                "1 - The Nile river __________ long.",
-                "2 - The Grimm Brothers __________ from Germany.",
-                "3 - The temperatures will __________ very high in the future."
-            ],
-            "Explicacoes": [
-                "1 - Utiliza-se is, por se tratar da terceira pessoa do singular no presente simples.",
-                "2 - Utiliza-se were, por se tratar da terceira pessoa do plural no passado simples.",
-                "3 - Utiliza-se be, pois o verbo deve ser empregado na forma infinitiva depois de will."
-            ],
-            "Habilidades": "EF06LI19",
-            "RespostaCorreta": [
-                "is",
-                "were",
-                "be"
-            ]
-        },
-        {
-            "Tipo": "simplesEscrita",
-            "Midia": "",
-            "Questao": "Complete os verbos com a forma correta do verbo to be: ",
-            "Alternativas": [
-                "1 - She __________ studying Spanish now.",
-                "2 - He has __________ abroad twice.",
-                "3 - They can __________ hired in the end of the course."
-            ],
-            "Explicacoes": [
-                "1 - Utiliza-se is, por se tratar da terceira pessoa do singular no presente simples contínuo.",
-                "2 - Utiliza-se been, por se tratar do particípio do passado.",
-                "3 - Utiliza-se be, pois o verbo deve ser empregado na forma infinitiva depois de verbos modais."
-            ],
-            "Habilidades": "EF06LI20",
-            "RespostaCorreta": [
-                "is",
-                "been",
-                "be"
-            ]
-        },
-        {
-            "Tipo": "simplesEscrita",
-            "Midia": "",
-            "Texto": "",
-            "Questao": " Complete as frases a seguir com a forma correta do verbo to be no presente simples:",
-            "Alternativas": [
-                "1 - My friends _____ French.",
-                "2 - Brazil _____ a beautiful country.",
-                "3 - I _____ 20 years old."
-            ],
-            "Explicacoes": [
-                "1 - My friends are French. (are é utilizado com o sujeito na terceira pessoa do plural)",
-                "2 - Brazil is a beautiful country. (is é utilizado com o sujeito na terceira pessoa do singular)",
-                "3 - I am 20 years old. (am é utilizado com o sujeito na primeira pessoa do singular)"
-            ],
-            "Habilidades": "EF06LI19",
-            "RespostaCorreta": [
-                "are",
-                "is",
-                "am"
-            ]
-        },
-        {
-            "Tipo": "textoAlternativa",
-            "Midia": "",
-            "Texto": "My name is Laura. I wake up at 6:30 a.m. and have breakfast with my family. I go to school at 7:15. In the afternoon, I do my homework and play volleyball.",
-            "Questao": "What time does Laura go to school?",
-            "Alternativas": [
-                "At 6:30",
-                "At 7:15",
-                "At 8:00",
-                "At 5:30"
-            ],
-            "Explicacoes": [
-                "A) At 6:30 → incorreto, ela acorda nesse horário, mas vai para a escola depois.",
-                "B) At 7:15 → correto, o texto diz “I go to school at 7:15.”",
-                "C) At 8:00 → incorreto, não citado no texto.",
-                "D) At 5:30 → incorreto, não citado no texto."
-            ],
-            "Habilidades": "EF06LI05",
-            "RespostaCorreta": ["At 7:15"]
-        },
-        {
-            "Tipo": "textoAlternativa",
-            "Midia": "",
-            "Texto": "Mark plays soccer on weekends and listens to music every day. He doesn’t like watching TV.",
-            "Questao": "What does Mark do every day? ",
-            "Alternativas": [
-                "He plays soccer",
-                "He listens to music",
-                "He watches TV",
-                "He studies math"
-            ],
-            "Explicacoes": [
-                "A) He plays soccer → incorreto, ele joga futebol apenas nos finais de semana.",
-                "B) He listens to music → correto, o texto diz “listens to music every day”",
-                "C) He watches TV → incorreto, o texto diz que ele não gosta de assistir TV",
-                "D) He studies math → incorreto, o texto não menciona estudos de matemática"
-            ],
-            "Habilidades": "EF06LI05",
-            "RespostaCorreta": ["He listens to music"]
-        },
-        {
-            "Tipo": "textoAlternativa",
-            "Midia": "",
-            "Texto": "My sister _____breakfast at 7 a.m",
-            "Questao": "Choose the correct option to complete the sentence ",
-            "Alternativas": [
-                "have",
-                "has",
-                "do",
-                "does"
-            ],
-            "Explicacoes": [
-                "A) have → incorreto, o sujeito é terceira pessoa do singular, precisa de has.",
-                "B) has → correto, terceira pessoa do singular no presente simples.",
-                "C) do → incorreto, não se usa “do” com verbo principal neste contexto afirmativo.",
-                "D) does → incorreto, “does” é usado como auxiliar para perguntas ou negações, não aqui."
-            ],
-            "Habilidades": "EF06LI19",
-            "RespostaCorreta": ["has"]
-        },
-        {
-            "Tipo": "textoAlternativa",
-            "Midia": "",
-            "Texto": "Lucas and I love pizza. It’s our favorite food!",
-            "Questao": "What does “our” mean in Portuguese?",
-            "Alternativas": [
-                "Meu",
-                "Seu",
-                "Nosso",
-                "Dele"
-            ],
-            "Explicacoes": [
-                "A) Meu → incorreto, o texto indica que a pizza é de Lucas e de quem fala → “our”",
-                "B) Seu → incorreto, “our” não significa “seu”",
-                "C) Nosso → correto, “our” significa “nosso” em português",
-                "D) Dele → incorreto, “our” não significa “dele”"
-            ],
-            "Habilidades": "EF06LI23",
-            "RespostaCorreta": ["Nosso"]
-        },
-        {
-            "Tipo": "textoAlternativa",
-            "Midia": "",
-            "Texto": "I get up at 7:00, brush my teeth, and go to school.",
-            "Questao": "What does “brush my teeth” mean?",
-            "Alternativas": [
-                "Tomar café",
-                "Lavar o rosto",
-                "Escovar os dentes",
-                "Dormir"
-            ],
-            "Explicacoes": [
-                "A) Tomar café → incorreto, “brush my teeth” não significa tomar café.",
-                "B) Lavar o rosto → incorreto, refere-se apenas à boca/dentes",
-                "C) Escovar os dentes → correto, “brush my teeth” significa escovar os dentes.",
-                "D) Dormir → incorreto, não tem relação com a expressão."
-            ],
-            "Habilidades": "EF06LI05",
-            "RespostaCorreta": ["Escovar os dentes"]
-        },
-        {
-            "Tipo": "textoAlternativa",
-            "Midia": "",
-            "Texto": "Paula is at home. She is cooking with her mother.",
-            "Questao": "Which tense is used in this sentence?",
-            "Alternativas": [
-                "Present simple",
-                "Present continuous",
-                "Past simple",
-                "Future tense"
-            ],
-            "Explicacoes": [
-                "A) Present simple → incorreto, pois indica hábitos ou verdades gerais, não uma ação em progresso.",
-                "B) Present continuous → correto, “She is cooking” descreve uma ação que está acontecendo no momento.",
-                "C) Past simple → incorreto, o tempo passado não é usado aqui.",
-                "D) Future tense → incorreto, a frase não indica ação futura."
-            ],
-            "Habilidades": "EF06LI20",
-            "RespostaCorreta": ["Present continuous"]
-        },
-        {
-            "Tipo": "textoAlternativa",
-            "Midia": "",
-            "Texto": "Match the columns: \n 1. get up  \n 2. go to bed \n 3. do homework ",
-            "Questao": "( ) fazer a lição de casa \n ( ) levantar-se \n ( ) ir dormir ",
-            "Alternativas": [
-                "3-2-1",
-                "3-1-2",
-                "2-1-3",
-                "1-2-3"
-            ],
-            "Explicacoes": "1) get up → levantar-se \n 2) go to bed → ir dormir \n 3) do homework → fazer a lição de casa",
-            "Habilidades": "EF06LI05",
-            "RespostaCorreta": ["3-1-2"]
-        },
-        {
-            "Tipo": "simplesAlternativa",
-            "Midia": "",
-            "Texto": "",
-            "Questao": "Choose the correct sentence:",
-            "Alternativas": [
-                "She go to school at 7 o’clock",
-                "She goes to school at 7 o’clock",
-                "She going to school at 7 o’clock",
-                "She is go to school at 7 o’clock"
-            ],
-            "Explicacoes": [
-                "A) She go to school at 7 o’clock → incorreto, o sujeito é terceira pessoa do singular, precisa de goes.",
-                "B) She goes to school at 7 o’clock → correto, terceira pessoa do singular no presente simples.",
-                "C) She going to school at 7 o’clock → incorreto, forma gramatical errada, falta o verbo to be para o presente contínuo.",
-                "D) She is go to school at 7 o’clock → incorreto, forma gramatical errada, o verbo principal deve ser going."
-            ],
-            "Habilidades": "EF06LI19",
-            "RespostaCorreta": ["She goes to school at 7 o’clock"]
-        },
-        {
-            "Tipo": "textoAlternativa",
-            "Midia": "",
-            "Texto": "Read and choose: \n Peter likes swimming, but he doesn’t like running.",
-            "Questao": "Which activity does Peter dislike?",
-            "Alternativas": [
-                "Swimming",
-                "Running",
-                "Playing soccer",
-                "Reading"
-            ],
-            "Explicacoes": [
-                "A) Swimming → incorreto, Peter gosta de nadar",
-                "B) Running → correto, o texto diz “he doesn’t like running”",
-                "C) Playing soccer → incorreto, não mencionado no texto",
-                "D) Reading → incorreto, não mencionado no texto"
-            ],
-            "Habilidades": "EF06LI05",
-            "RespostaCorreta": ["Running"]
-        },
-        {
-            "Tipo": "textoAlternativa",
-            "Midia": "",
-            "Texto": "I usually ___ a shower before breakfast.",
-            "Questao": "Choose the option that best completes the sentence",
-            "Alternativas": [
-                "take",
-                "makes",
-                "taking",
-                "took"
-            ],
-            "Explicacoes": [
-                "A) take → correto, o verbo no presente simples para primeira pessoa do singular é take.",
-                "B) makes → incorreto, “makes” não combina com “I” nem com o sentido da frase.",
-                "C) taking → incorreto, forma do gerúndio não se usa aqui.",
-                "D) took → incorreto, passado simples não é adequado com “usually” (presente de hábitos)"
-            ],
-            "Habilidades": "EF06LI19",
-            "RespostaCorreta": ["take"]
-        },
-        {
-            "Tipo": "imagemAlternativa",
-            "Midia": "",
-            "Texto": "",
-            "Questao": "Lucas: Hi, Julia! What are you doing here at Luz Station? \n Julia: Oh, hi! I am waiting for the train to Barra Funda. \n De acordo com texto, quem está esperando o trem a mais tempo?",
-            "Alternativas": [
-                "Julia",
-                "Lucas",
-                "Ambos",
-                "Barra Funda"
-            ],
-            "Explicacoes": [
-                "A) Julia → correto, o texto diz “I am waiting for the train”, indicando que Julia está esperando o trem",
-                "B) Lucas → incorreto, Lucas pergunta apenas o que Julia está fazendo, não há indicação de que ele estivesse esperando",
-                "C) Ambos → incorreto, apenas Julia está esperando",
-                "D) Barra Funda → incorreto, é o destino do trem, não uma pessoa esperando"
-            ],
-            "Habilidades": "EF06LI09",
-            "RespostaCorreta": ["Julia"]
-        },
-        {
-            "Tipo": "simplesAlternativa",
-            "Midia": "",
-            "Texto": "",
-            "Questao": "A frase “She don’t likes coffee in the morning.” está gramaticalmente incorreta. Qual é a sua versão correta?",
-            "Alternativas": [
-                "She don’t like coffe in the morning",
-                "She does like coffe in the morning",
-                "She doesn’t like coffe in the morning",
-                "She likes tea in the morning"
-            ],
-            "Explicacoes": [
-                "A) She don’t like coffe in the morning → incorreto, com “she” deve-se usar doesn’t e “like” (não “don’t likes”).",
-                "B) She does like coffe in the morning → incorreto, esta forma afirma que ela gosta, mas a frase original é negativa.",
-                "C) She doesn’t like coffe in the morning → correto, forma negativa adequada para terceira pessoa do singular",
-                "D) She likes tea in the morning → incorreto, pois a frase original fala de não gostar de café, não de chá"
-            ],
-            "Habilidades": "EF06LI09",
-            "RespostaCorreta": ["She doesn’t like coffe in the morning"]
-        },
-        {
-            "Tipo": "imagemAlternativa",
-            "Midia": "",
-            "Texto": "",
-            "Questao": "What is he doing right now?",
-            "Alternativas": [
-                "Take a bus",
-                "Packing his suitcase",
-                "Dancing",
-                "Cooking"
-            ],
-            "Explicacoes": [
-                "A) Take a bus → incorreto, ele não está pegando ônibus na imagem.",
-                "B) Packing his suitcase → correto, a pessoa está fazendo as malas.",
-                "C) Dancing → incorreto, ele não está dançando.",
-                "D) Cooking → incorreto, ele não está cozinhando."
-            ],
-            "Habilidades": "EF06LI20",
-            "RespostaCorreta": ["Packing his suitcase"]
-        },
-        {
-            "Tipo": "simplesAlternativa",
-            "Midia": "",
-            "Texto": "",
-            "Questao": "“Travel” é o verbo viajar. Quando utilizamos “travel” para falarmos sobre a terceira pessoa, o que acontece com ele?",
-            "Alternativas": [
-                "Travels",
-                "Troad",
-                "Traveled",
-                "Traveling"
-            ],
-            "Explicacoes": [
-                "A) Travels → correto, no presente simples, adiciona-se -s para a terceira pessoa do singular.",
-                "B) Troad → incorreto, forma inexistente.",
-                "C) Traveled → incorreto, é passado simples",
-                "D) Traveling → incorreto, é gerúndio"
-            ],
-            "Habilidades": "EF06LI19",
-            "RespostaCorreta": ["Travels"]
-        },
-        {
-            "Tipo": "simplesAlternativa",
-            "Midia": "",
-            "Texto": "",
-            "Questao": "O genitivo (’s) — também chamado de possessive case — é usado em inglês para mostrar posse ou relação entre duas coisas ou pessoas. Utilizando o genitivo, como ficaria a frase “essa é a banana dá Ana”",
-            "Alternativas": [
-                "Ana Banana",
-                "Bananas Ana",
-                "Ana’s banana",
-                "Ana of Banana"
-            ],
-            "Explicacoes": [
-                "A) Ana Banana → incorreto, não indica posse.",
-                "B) Bananas Ana → incorreto, ordem errada e não indica posse.",
-                "C) Ana’s banana → correto, o genitivo em inglês indica que a banana pertence à Ana.",
-                "D) Ana of Banana → incorreto, forma errada para posse."
-            ],
-            "Habilidades": "EF06LI23",
-            "RespostaCorreta": ["Ana’s banana"]
-        },
-        {
-            "Tipo": "simplesEscrita",
-            "Midia": "",
-            "Texto": "",
-            "Questao": "Complete as frases a seguir com a forma correta do verbo to be no presente simples:",
-            "Alternativas": [
-                "1 - Every summer, my family ________ (travel) to Bahia. ",
-                "2 - My mother ________ (love) the beach,",
-                "3 - but my father ________ (prefer) the mountains."
-            ],
-            "Explicacoes": [
-                "Every summer, my family ________ (travel) to Bahia. → travels, porque o sujeito my family é tratado como terceira pessoa do singular no presente simples.",
-                "My mother ________ (love) the beach. → loves, terceira pessoa do singular.",
-                "but my father ________ (prefer) the mountains. → prefers, terceira pessoa do singular."
-            ],
-            "Habilidades": "EF06LI19",
-            "RespostaCorreta": [
-                "travels",
-                "loves",
-                "prefers"
-            ]
-        },
-        {
-            "Tipo": "simplesEscrita",
-            "Midia": "",
-            "Texto": "",
-            "Questao": "Transforme as frases abaixo usando o caso genitivo (‘s):",
-            "Alternativas": [
-                "1 - The car of my father → __________",
-                "2 - The toys of the children → __________ ",
-                "3 - The name of the teacher → __________"
-            ],
-            "Explicacoes": [
-                "The car of my father → My father's car → correto, uso do genitivo para indicar posse.",
-                "The toys of the children → The children's toys → correto, genitivo plural para posse.",
-                "The name of the teacher → The teacher's name → correto, genitivo singular."
-            ],
-            "Habilidades": "EF06LI23",
-            "RespostaCorreta": [
-                "My father's car",
-                "The children's toys",
-                "The teacher's name"
-            ]
-        },
-        {
-            "Tipo": "simplesAlternativa",
-            "Midia": "",
-            "Texto": "",
-            "Questao": "Frases imperativas em inglês são usadas para dar comandos, ordens, instruções ou pedidos diretos. Qual dessas frases não é imperativa?",
-            "Alternativas": [
-                "Let’s go!",
-                "Don’t go.",
-                "bye bye!",
-                "Do it!"
-            ],
-            "Explicacoes": [
-                "A) Let’s go! → incorreto, é imperativa, indica um convite/ordem para irmos",
-                "B) Don’t go. → incorreto, imperativa negativa, ordem para não ir.",
-                "C) bye bye! → correto, não é imperativa, é apenas uma despedida.",
-                "D) Do it! → incorreto, imperativa afirmativa, ordem para fazer algo."
-            ],
-            "Habilidades": "EF06LI21",
-            "RespostaCorreta": ["bye bye!"]
-        },
-        {
-            "Tipo": "textoAlternativa",
-            "Midia": "",
-            "Texto": "“When these children try to put your hand in a fire, your mommy says: ‘Get out!’”",
-            "Questao": "Nesse texto, quem está dando a ordem?",
-            "Alternativas": [
-                "These",
-                "Mommy",
-                "Children",
-                "You"
-            ],
-            "Explicacoes": [
-                "A) These → incorreto, refere-se às crianças que tentam colocar a mão no fogo",
-                "B) Mommy → correto, o texto diz “your mommy says: ‘Get out!’”, indicando que a mãe está dando a ordem.",
-                "C) Children → incorreto, eles estão agindo, não dando ordens.",
-                "D) You → incorreto, não é quem dá a ordem."
-            ],
-            "Habilidades": "EF06LI21",
-            "RespostaCorreta": ["Mommy"]
-        }
-    ]
+  "diagnostica_6ano": [
+    {
+      "Tipo": "simplesAlternativa",
+      "Midia": "",
+      "Texto": "",
+      "Questao": "Complete: I ___ a student.",
+      "Alternativas": ["is", "am", "are"],
+      "Explicacao": "Avalia o reconhecimento da forma correta do verbo to be na primeira pessoa do singular.",
+      "Objetivo": "Verificar se o estudante diferencia as formas do verbo to be e usa 'am' com 'I'.",
+      "Habilidades": ["EF06LI19", "EF06LI05"],
+      "RespostaCorreta": ["am"]
+    },
+    {
+      "Tipo": "simplesAlternativa",
+      "Midia": "",
+      "Texto": "",
+      "Questao": "What color is the sky on a sunny day?",
+      "Alternativas": ["Green", "Blue", "Yellow"],
+      "Explicacao": "Verifica vocabulário básico de cores.",
+      "Objetivo": "Checar se o estudante identifica vocabulário cotidiano básico.",
+      "Habilidades": ["EF06LI05", "EF06LI08"],
+      "RespostaCorreta": ["Blue"]
+    },
+    {
+      "Tipo": "simplesAlternativa",
+      "Midia": "",
+      "Texto": "",
+      "Questao": "Choose the correct plural: One apple, two ___.",
+      "Alternativas": ["apple", "apples", "applez"],
+      "Explicacao": "Avalia conhecimento de formação de plural regular.",
+      "Objetivo": "Verificar reconhecimento de plural regular de substantivos.",
+      "Habilidades": ["EF06LI19", "EF06LI08"],
+      "RespostaCorreta": ["apples"]
+    },
+    {
+      "Tipo": "simplesAlternativa",
+      "Midia": "",
+      "Texto": "",
+      "Questao": "What is the opposite of 'cold'?",
+      "Alternativas": ["Warm", "Hot", "Cool"],
+      "Explicacao": "Testa vocabulário e associação de antônimos básicos.",
+      "Objetivo": "Identificar se o aluno reconhece antônimos simples.",
+      "Habilidades": ["EF06LI05", "EF06LI08"],
+      "RespostaCorreta": ["Hot"]
+    },
+    {
+      "Tipo": "simplesAlternativa",
+      "Midia": "",
+      "Texto": "",
+      "Questao": "Where do students study?",
+      "Alternativas": ["At school", "At home", "At the zoo"],
+      "Explicacao": "Pergunta de vocabulário cotidiano relacionada a lugar.",
+      "Objetivo": "Avaliar se o aluno entende perguntas diretas de localização.",
+      "Habilidades": ["EF06LI05", "EF06LI08"],
+      "RespostaCorreta": ["At school"]
+    },
+    {
+      "Tipo": "textoAlternativa",
+      "Midia": "",
+      "Texto": "My cousin was in Paris last week.",
+      "Questao": "Make the correct question:",
+      "Alternativas": [
+        "My cousin was in Paris last week?",
+        "Was in Paris my cousin last week?",
+        "Was my cousin in Paris last week?"
+      ],
+      "Explicacao": "Avalia a formação de perguntas a partir de frases afirmativas com inversão do verbo to be.",
+      "Objetivo": "Verificar se o aluno reconhece a inversão do verbo em perguntas no passado.",
+      "Habilidades": ["EF06LI19", "EF06LI08"],
+      "RespostaCorreta": ["Was my cousin in Paris last week?"]
+    },
+    {
+      "Tipo": "simplesAlternativa",
+      "Midia": "",
+      "Texto": "",
+      "Questao": "Which sentence is grammatically correct?",
+      "Alternativas": [
+        "My friends and I am happy.",
+        "Julie were at school yesterday.",
+        "My family will be together for Father’s Day."
+      ],
+      "Explicacao": "Detecta concordância correta do verbo to be em diferentes contextos.",
+      "Objetivo": "Identificar uso correto de am/are/is e flexões irregulares.",
+      "Habilidades": ["EF06LI19", "EF06LI05"],
+      "RespostaCorreta": ["My family will be together for Father’s Day."]
+    },
+    {
+      "Tipo": "simplesAlternativa",
+      "Midia": "",
+      "Texto": "",
+      "Questao": "Complete: The Nile river ___ long.",
+      "Alternativas": ["is", "are", "am"],
+      "Explicacao": "Uso do verbo to be com sujeito singular.",
+      "Objetivo": "Reconhecer concordância do verbo to be com sujeitos na terceira pessoa.",
+      "Habilidades": ["EF06LI19"],
+      "RespostaCorreta": ["is"]
+    },
+    {
+      "Tipo": "simplesAlternativa",
+      "Midia": "",
+      "Texto": "",
+      "Questao": "Complete: She ___ studying English now.",
+      "Alternativas": ["is", "are", "am"],
+      "Explicacao": "Identifica uso do present continuous.",
+      "Objetivo": "Verificar se o aluno reconhece pistas temporais e forma verbal contínua.",
+      "Habilidades": ["EF06LI19", "EF06LI05"],
+      "RespostaCorreta": ["is"]
+    },
+    {
+      "Tipo": "simplesAlternativa",
+      "Midia": "",
+      "Texto": "",
+      "Questao": "Complete: A) My friends _____ French. B) Brazil _____ beautiful. C) I _____ 20 years old.",
+      "Alternativas": ["are / is / am", "is / are / are", "am / is / are"],
+      "Explicacao": "Avalia uso correto de are/is/am conforme o sujeito.",
+      "Objetivo": "Verificar aplicação correta do verbo to be em três pessoas diferentes.",
+      "Habilidades": ["EF06LI19", "EF06LI05"],
+      "RespostaCorreta": ["are / is / am"]
+    },
+    {
+      "Tipo": "textoAlternativa",
+      "Midia": "",
+      "Texto": "My name is Laura. I wake up at 6:30 a.m. I go to school at 7:15.",
+      "Questao": "What time does Laura go to school?",
+      "Alternativas": ["At 6:30", "At 7:15", "At 8:00"],
+      "Explicacao": "Compreensão de informações específicas sobre rotina.",
+      "Objetivo": "Localizar horários em texto curto.",
+      "Habilidades": ["EF06LI19", "EF06LI08"],
+      "RespostaCorreta": ["At 7:15"]
+    },
+    {
+      "Tipo": "textoAlternativa",
+      "Midia": "",
+      "Texto": "Mark plays soccer on weekends and listens to music every day. He doesn't like watching TV.",
+      "Questao": "What does Mark do every day?",
+      "Alternativas": [
+        "He plays soccer",
+        "He listens to music",
+        "He watches TV"
+      ],
+      "Explicacao": "Interpretação de hábitos e rotina.",
+      "Objetivo": "Verificar identificação de informações explícitas.",
+      "Habilidades": ["EF06LI05", "EF06LI08"],
+      "RespostaCorreta": ["He listens to music"]
+    },
+    {
+      "Tipo": "simplesAlternativa",
+      "Midia": "",
+      "Texto": "",
+      "Questao": "Complete: My sister _____ breakfast at 7 a.m.",
+      "Alternativas": ["have", "has", "do"],
+      "Explicacao": "Avalia uso do present simple na terceira pessoa.",
+      "Objetivo": "Testar reconhecimento da forma verbal correta.",
+      "Habilidades": ["EF06LI19"],
+      "RespostaCorreta": ["has"]
+    },
+
+    {
+      "Tipo": "textoAlternativa",
+      "Midia": "",
+      "Texto": "Lucas and I love pizza. It’s our favorite food!",
+      "Questao": "What does 'our' mean in Portuguese?",
+      "Alternativas": ["Meu", "Seu", "Nosso"],
+      "Explicacao": "Identificação de adjetivo possessivo.",
+      "Objetivo": "Reconhecer posse compartilhada.",
+      "Habilidades": ["EF06LI05"],
+      "RespostaCorreta": ["Nosso"]
+    },
+
+    {
+      "Tipo": "simplesAlternativa",
+      "Midia": "",
+      "Texto": "I need to buy some _______ to brush my teeth.",
+      "Questao": "Choose the correct option:",
+      "Alternativas": ["soap", "toothpaste", "shampoo"],
+      "Explicacao": "Avalia vocabulário cotidiano de higiene.",
+      "Objetivo": "Identificar itens de rotina diária.",
+      "Habilidades": ["EF06LI05", "EF06LI08"],
+      "RespostaCorreta": ["toothpaste"]
+    },
+
+    {
+      "Tipo": "textoAlternativa",
+      "Midia": "",
+      "Texto": "Paula is at home. She is cooking.",
+      "Questao": "What is happening?",
+      "Alternativas": [
+        "Paula is at a restaurant.",
+        "Paula is cooking at home.",
+        "Paula is sleeping."
+      ],
+      "Explicacao": "Uso do present continuous para ação em progresso.",
+      "Objetivo": "Reconhecer ações acontecendo no momento.",
+      "Habilidades": ["EF06LI19", "EF06LI05"],
+      "RespostaCorreta": ["Paula is cooking at home."]
+    },
+
+    {
+      "Tipo": "textoAlternativa",
+      "Midia": "",
+      "Texto": "Match the columns:\n1. get up\n2. go to bed\n3. do homework",
+      "Questao": "( ) fazer a lição de casa  ( ) levantar-se  ( ) ir dormir",
+      "Alternativas": ["1–2–3", "3–1–2", "2–3–1"],
+      "Explicacao": "Associação entre verbos de rotina e seus significados.",
+      "Objetivo": "Verificar correspondência léxica entre inglês e português.",
+      "Habilidades": ["EF06LI05", "EF06LI08"],
+      "RespostaCorreta": ["3–1–2"]
+    },
+
+    {
+      "Tipo": "simplesAlternativa",
+      "Midia": "",
+      "Texto": "",
+      "Questao": "Choose the correct sentence:",
+      "Alternativas": [
+        "She go to school at 7 o’clock.",
+        "She goes to school at 7 o’clock.",
+        "She going to school at 7 o’clock."
+      ],
+      "Explicacao": "Reconhece conjugação correta do present simple.",
+      "Objetivo": "Verificar domínio da regra da 3ª pessoa.",
+      "Habilidades": ["EF06LI19"],
+      "RespostaCorreta": ["She goes to school at 7 o’clock"]
+    },
+
+    {
+      "Tipo": "textoAlternativa",
+      "Midia": "",
+      "Texto": "Peter likes swimming, but he doesn’t like running.",
+      "Questao": "Which activity does Peter dislike?",
+      "Alternativas": ["Swimming", "Running", "Playing soccer"],
+      "Explicacao": "Identificação de preferência negativa.",
+      "Objetivo": "Compreender contraste entre gostos.",
+      "Habilidades": ["EF06LI05", "EF06LI08"],
+      "RespostaCorreta": ["Running"]
+    },
+
+    {
+      "Tipo": "simplesAlternativa",
+      "Midia": "",
+      "Texto": "I usually ___ a shower before breakfast.",
+      "Questao": "Complete the sentence:",
+      "Alternativas": ["take", "makes", "taking"],
+      "Explicacao": "Uso do simple present para hábitos.",
+      "Objetivo": "Avaliar a seleção de forma verbal adequada.",
+      "Habilidades": ["EF06LI19", "EF06LI05"],
+      "RespostaCorreta": ["take"]
+    },
+
+    {
+      "Tipo": "textoAlternativa",
+      "Midia": "",
+      "Texto": "Lucas: 'Hi, Julia! What are you doing here?'\nJulia: 'I am waiting for the train.'",
+      "Questao": "Who is waiting for the train?",
+      "Alternativas": ["Julia", "Lucas", "Both"],
+      "Explicacao": "Identificação do agente da ação.",
+      "Objetivo": "Verificar compreensão de present continuous.",
+      "Habilidades": ["EF06LI19", "EF06LI08"],
+      "RespostaCorreta": ["Julia"]
+    },
+
+    {
+      "Tipo": "simplesAlternativa",
+      "Midia": "",
+      "Texto": "She don’t likes coffee in the morning.",
+      "Questao": "Choose the correct form:",
+      "Alternativas": [
+        "She don’t like coffee in the morning.",
+        "She does like coffee in the morning.",
+        "She doesn’t like coffee in the morning."
+      ],
+      "Explicacao": "Avalia regra da negação no present simple.",
+      "Objetivo": "Corrigir erro comum envolvendo doesn’t + base verbal.",
+      "Habilidades": ["EF06LI19"],
+      "RespostaCorreta": ["She doesn’t like coffee in the morning."]
+    },
+
+    {
+      "Tipo": "simplesAlternativa",
+      "Midia": "REQUER IMAGEM ESTATICA MOSTRANDO UMA PESSOA ARRUMANDO/MONTANDO A MALA",
+      "Texto": "What is he doing right now?",
+      "Questao": "Choose the correct option:",
+      "Alternativas": [
+        "Take a bus",
+        "Packing his suitcase",
+        "Dancing"
+      ],
+      "Explicacao": "Identificação de ação na imagem / contexto.",
+      "Objetivo": "Avaliar reconhecimento do present continuous.",
+      "Habilidades": ["EF06LI19", "EF06LI08"],
+      "RespostaCorreta": ["Packing his suitcase"]
+    },
+
+    {
+      "Tipo": "simplesAlternativa",
+      "Midia": "",
+      "Texto": "",
+      "Questao": "Complete: Every summer, my family _______ (travel) to Bahia.",
+      "Alternativas": ["travels", "traveled", "travelling"],
+      "Explicacao": "Avalia uso da regra da 3ª pessoa.",
+      "Objetivo": "Reconhecer terminação -s em hábitos no presente.",
+      "Habilidades": ["EF06LI19"],
+      "RespostaCorreta": ["travels"]
+    },
+
+    {
+      "Tipo": "simplesAlternativa",
+      "Midia": "",
+      "Texto": "I borrowed Emma’s phone because _______ was out of battery.",
+      "Questao": "Choose the correct pronoun:",
+      "Alternativas": ["his", "mine", "me"],
+      "Explicacao": "Verifica compreensão de pronomes possessivos.",
+      "Objetivo": "Identificar o uso de 'mine' como forma possessiva.",
+      "Habilidades": ["EF06LI05", "EF06LI08"],
+      "RespostaCorreta": ["mine"]
+    }
+  ]
 }

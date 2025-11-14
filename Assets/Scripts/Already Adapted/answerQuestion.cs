@@ -14,9 +14,9 @@ public class answerQuestion : MonoBehaviour
     public class RespostaUsuario
     {
         public int idQuestao;
-        public object respostaCorreta;
+        public List<string> respostaCorreta;   // SEMPRE LISTA
         public string respostaUsuario;
-        public string habilidade;
+        public List<string> habilidades;       // SEMPRE LISTA
     }
 
     private List<RespostaUsuario> respostas = new List<RespostaUsuario>();
@@ -42,6 +42,7 @@ public class answerQuestion : MonoBehaviour
         }
 
         var fase = PhaseManager.Instance.currentPhase;
+
         if (fase.diagnostica_6ano == null || phaseUI.currentID >= fase.diagnostica_6ano.Count)
         {
             Debug.LogWarning($"[answerQuestion] Questão ID {phaseUI.currentID} não encontrada!");
@@ -49,44 +50,40 @@ public class answerQuestion : MonoBehaviour
         }
 
         var itemAtual = fase.diagnostica_6ano[phaseUI.currentID];
-        string respostaUsuarioStr = respostaUsuario;
+
+        List<string> respostasCorretas = itemAtual.RespostaCorreta;
         bool estaCorreta = false;
 
-        // Verificação de resposta correta
+        // 🔹 Questões de alternativa (apenas 1 correta)
         if (itemAtual.Tipo != "simplesEscrita")
         {
-            if (itemAtual.RespostaCorreta is List<object> lista && lista.Count > 0)
-            {
-                string respostaCorretaStr = lista[0]?.ToString();
-                estaCorreta = respostaUsuarioStr == respostaCorretaStr;
-            }
+            if (respostasCorretas.Count > 0)
+                estaCorreta = respostaUsuario == respostasCorretas[0];
         }
         else
         {
-            if (itemAtual.RespostaCorreta is List<object> lista && lista.Count >= 3)
-            {
-                string[] respostasCorretas = lista.Select(x => x?.ToString()).ToArray();
-                string[] respostasUsuario = respostaUsuario.Split('|');
-                estaCorreta = respostasUsuario.SequenceEqual(respostasCorretas);
-            }
+            // 🔹 Questões de escrita: "parte1|parte2|parte3"
+            string[] respostasUsuario = respostaUsuario.Split('|');
+            estaCorreta = respostasUsuario.SequenceEqual(respostasCorretas);
         }
 
+        // 🔹 Salvar resposta
         var novaResposta = new RespostaUsuario
         {
             idQuestao = phaseUI.currentID,
-            respostaCorreta = itemAtual.RespostaCorreta,
-            respostaUsuario = respostaUsuarioStr,
-            habilidade = itemAtual.Habilidades
+            respostaCorreta = respostasCorretas,
+            respostaUsuario = respostaUsuario,
+            habilidades = itemAtual.Habilidades
         };
 
         respostas.Add(novaResposta);
 
-        Debug.Log($"[RESPOSTA] Questão {phaseUI.currentID} | Correta: {estaCorreta} | Habilidade: {itemAtual.Habilidades}");
+        Debug.Log($"[RESPOSTA] Q{phaseUI.currentID} | Correta: {estaCorreta} | Habs: {string.Join(",", itemAtual.Habilidades)}");
 
         phaseUI.questaoRespondida = true;
         onRespostaRegistrada?.Invoke();
 
-        // Finaliza se for a última questão
+        // Última questão → finaliza
         if (phaseUI.currentID >= fase.diagnostica_6ano.Count - 1)
         {
             FinalizarFase();
@@ -97,15 +94,16 @@ public class answerQuestion : MonoBehaviour
     {
         Debug.Log("[answerQuestion] Todas as respostas foram registradas. Gerando feedback...");
 
-        // Exibe feedback visual, se houver
+        // UI visual de feedback final
         HabilidadeFeedbackUI feedbackUI = GetComponent<HabilidadeFeedbackUI>();
         if (feedbackUI != null)
             feedbackUI.GerarFeedbackVisual(respostas);
 
-        // Agrupa respostas por habilidade
-        var agrupadas = respostas.GroupBy(r => r.habilidade);
+        // 🔹 Cada questão pode ter várias habilidades → expandimos
+        var agrupadas =
+            respostas.SelectMany(r => r.habilidades.Select(h => new { hab = h, resp = r }))
+                     .GroupBy(x => x.hab);
 
-        // Lista final de habilidades aprovadas (≥ 66% de acertos)
         List<string> habilidadesAprovadas = new List<string>();
 
         foreach (var grupo in agrupadas)
@@ -113,24 +111,21 @@ public class answerQuestion : MonoBehaviour
             int total = grupo.Count();
             int acertos = 0;
 
-            foreach (var r in grupo)
+            foreach (var item in grupo)
             {
+                var r = item.resp;
                 bool estaCorreta = false;
 
-                if (r.respostaCorreta is List<object> lista && lista.Count > 0)
+                // Questão escrita
+                if (r.respostaUsuario.Contains("|"))
                 {
-                    // Caso a resposta do usuário tenha múltiplos valores (separados por "|")
-                    if (r.respostaUsuario.Contains("|"))
-                    {
-                        string[] respostasUsuario = r.respostaUsuario.Split('|');
-                        string[] respostasCorretas = lista.Select(x => x?.ToString()).ToArray();
-                        estaCorreta = respostasUsuario.SequenceEqual(respostasCorretas);
-                    }
-                    else
-                    {
-                        // Caso simples (única resposta)
-                        estaCorreta = r.respostaUsuario == lista[0]?.ToString();
-                    }
+                    string[] userSplit = r.respostaUsuario.Split('|');
+                    estaCorreta = userSplit.SequenceEqual(r.respostaCorreta);
+                }
+                else
+                {
+                    // Questão de alternativas
+                    estaCorreta = r.respostaUsuario == r.respostaCorreta[0];
                 }
 
                 if (estaCorreta)
@@ -140,39 +135,37 @@ public class answerQuestion : MonoBehaviour
             float taxa = (float)acertos / total;
             bool aprovado = taxa >= 0.66f;
 
-            Debug.Log($"[answerQuestion] Habilidade {grupo.Key}: {acertos}/{total} acertos ({taxa:P0}) - {(aprovado ? "✅ APROVADA" : "❌ REPROVADA")}");
+            Debug.Log($"[Habilidade] {grupo.Key} = {acertos}/{total} → {(aprovado ? "APROVADO" : "REPROVADO")}");
 
             if (aprovado)
                 habilidadesAprovadas.Add(grupo.Key);
         }
 
+        // ------------------- SALVAR NO FIRESTORE -------------------
         if (habilidadesAprovadas.Count == 0)
         {
-            Debug.Log("[answerQuestion] Nenhuma habilidade aprovada para salvar no Firestore.");
+            Debug.Log("[answerQuestion] Nenhuma habilidade aprovada.");
             return;
         }
 
-        // 🔹 Salva as habilidades aprovadas no Firestore
         FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
         string userId = UserDataManager.userInstance.GetUserId();
 
         if (string.IsNullOrEmpty(userId))
         {
-            Debug.LogWarning("[answerQuestion] Usuário não autenticado — não foi possível salvar habilidades.");
+            Debug.LogWarning("[answerQuestion] Usuário não autenticado.");
             return;
         }
 
         DocumentReference userDoc = db.Collection("Users").Document(userId);
-        Debug.Log($"[answerQuestion] Salvando {habilidadesAprovadas.Count} habilidades aprovadas...");
 
         userDoc.UpdateAsync("habilidades", FieldValue.ArrayUnion(habilidadesAprovadas.ToArray()))
             .ContinueWithOnMainThread(task =>
             {
                 if (task.IsCompletedSuccessfully)
-                    Debug.Log("[answerQuestion] ✅ Habilidades aprovadas adicionadas com sucesso!");
+                    Debug.Log("[answerQuestion] ✅ Habilidades salvas.");
                 else
                     Debug.LogError($"[answerQuestion] ❌ Erro ao salvar habilidades: {task.Exception}");
             });
     }
-
 }
