@@ -1,5 +1,6 @@
 {
-  "Trilha5": {
+  "TRILHA005": {
+    "ID": "TRILHA005",
     "Nome": "Trilha 5 - Time & Activities",
     "Descricao": "Horas, rotina com horários e atividades associadas ao tempo.",
     "Habilidades": ["EF06LI05", "EF06LI19", "EF06LI08"],

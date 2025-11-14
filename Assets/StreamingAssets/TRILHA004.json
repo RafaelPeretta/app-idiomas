@@ -1,5 +1,6 @@
 {
-  "Trilha4": {
+  "TRILHA004": {
+    "ID": "TRILHA004",
     "Nome": "Trilha 4 - My Places",
     "Descricao": "Locais da cidade, direções simples e compreensão de mapas.",
     "Habilidades": ["EF06LI05", "EF06LI08"],

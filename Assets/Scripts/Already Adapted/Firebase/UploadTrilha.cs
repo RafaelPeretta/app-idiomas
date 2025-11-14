@@ -12,12 +12,12 @@ public class TrilhaUploader : MonoBehaviour
     {
         db = FirebaseFirestore.DefaultInstance;
 
-        // Lista das trilhas a enviar
-        string[] trilhas = { "Trilha1", "Trilha2", "Trilha3", "Trilha4", "Trilha5" };
+        // Lista das trilhas a enviar (nomes dos arquivos JSON)
+        string[] trilhas = { "TRILHA001", "TRILHA002", "TRILHA003", "TRILHA004", "TRILHA005" };
 
-        foreach (string id in trilhas)
+        foreach (string trilhaID in trilhas)
         {
-            await ProcessarTrilha(id);
+            await ProcessarTrilha(trilhaID);
         }
 
         Debug.Log("🔥 Todas as trilhas foram enviadas!");
@@ -34,25 +34,21 @@ public class TrilhaUploader : MonoBehaviour
         }
 
         string json = File.ReadAllText(path);
-
-        // Wrapper genérico
-        TrilhaWrapper wrapper = JsonUtility.FromJson<TrilhaWrapper>(json);
-
-        // Reflexão manual: pegar o campo correspondente (Trilha1, Trilha2, etc)
         TrilhaData trilha = null;
 
+        // Desserializa para o wrapper correto de cada trilha
         switch (trilhaID)
         {
-            case "Trilha1": trilha = wrapper.Trilha1; break;
-            case "Trilha2": trilha = wrapper.Trilha2; break;
-            case "Trilha3": trilha = wrapper.Trilha3; break;
-            case "Trilha4": trilha = wrapper.Trilha4; break;
-            case "Trilha5": trilha = wrapper.Trilha5; break;
+            case "TRILHA001": trilha = JsonUtility.FromJson<TrilhaWrapper001>(json).TRILHA001; break;
+            case "TRILHA002": trilha = JsonUtility.FromJson<TrilhaWrapper002>(json).TRILHA002; break;
+            case "TRILHA003": trilha = JsonUtility.FromJson<TrilhaWrapper003>(json).TRILHA003; break;
+            case "TRILHA004": trilha = JsonUtility.FromJson<TrilhaWrapper004>(json).TRILHA004; break;
+            case "TRILHA005": trilha = JsonUtility.FromJson<TrilhaWrapper005>(json).TRILHA005; break;
         }
 
         if (trilha == null)
         {
-            Debug.LogError($"❌ JSON lido, mas chave '{trilhaID}' está nula!");
+            Debug.LogError($"❌ Chave '{trilhaID}' não encontrada no JSON!");
             return;
         }
 
@@ -80,6 +76,7 @@ public class TrilhaUploader : MonoBehaviour
 
         var trilhaDict = new Dictionary<string, object>
         {
+            {"ID", trilha.ID},
             {"Nome", trilha.Nome},
             {"Descricao", trilha.Descricao},
             {"Habilidades", trilha.Habilidades},
@@ -87,7 +84,6 @@ public class TrilhaUploader : MonoBehaviour
         };
 
         await db.Collection("trilhas").Document(trilhaID).SetAsync(trilhaDict);
-
         Debug.Log($"✅ {trilhaID} enviada!");
 
         await AtualizarReferencia(trilhaID, trilha);
@@ -97,7 +93,7 @@ public class TrilhaUploader : MonoBehaviour
     {
         var referencia = new Dictionary<string, object>()
         {
-            {"ID", trilhaID},
+            {"ID", trilha.ID},
             {"Nome", trilha.Nome},
             {"Descricao", trilha.Descricao},
             {"Habilidades", trilha.Habilidades}
@@ -108,33 +104,28 @@ public class TrilhaUploader : MonoBehaviour
             {"Lista", FieldValue.ArrayUnion(referencia)}
         };
 
-        await FirebaseFirestore.DefaultInstance
-            .Collection("referencias")
-            .Document("Trilhas")
-            .SetAsync(updateData, SetOptions.MergeAll);
+        await db.Collection("referencias")
+                .Document("Trilhas")
+                .SetAsync(updateData, SetOptions.MergeAll);
 
         Debug.Log($"📌 Referencia atualizada: {trilhaID}");
     }
 }
 
+// ---------------------------
+// WRAPPERS INDIVIDUAIS PARA CADA TRILHA
+// ---------------------------
 
-// ------------------------------------------------------
-// WRAPPER SUPORTA TODAS AS TRILHAS
-// ------------------------------------------------------
-
-[System.Serializable]
-public class TrilhaWrapper
-{
-    public TrilhaData Trilha1;
-    public TrilhaData Trilha2;
-    public TrilhaData Trilha3;
-    public TrilhaData Trilha4;
-    public TrilhaData Trilha5;
-}
+[System.Serializable] public class TrilhaWrapper001 { public TrilhaData TRILHA001; }
+[System.Serializable] public class TrilhaWrapper002 { public TrilhaData TRILHA002; }
+[System.Serializable] public class TrilhaWrapper003 { public TrilhaData TRILHA003; }
+[System.Serializable] public class TrilhaWrapper004 { public TrilhaData TRILHA004; }
+[System.Serializable] public class TrilhaWrapper005 { public TrilhaData TRILHA005; }
 
 [System.Serializable]
 public class TrilhaData
 {
+    public string ID;
     public string Nome;
     public string Descricao;
     public List<string> Habilidades;

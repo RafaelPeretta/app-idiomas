@@ -1,5 +1,6 @@
 {
-  "Trilha1": {
+  "TRILHA001": {
+    "ID": "TRILHA001",
     "Nome": "Getting Started",
     "Descricao": "Vocabulário essencial, apresentação pessoal e uso do verb to be.",
     "Habilidades": ["EF06LI19", "EF06LI05"],

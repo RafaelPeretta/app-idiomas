@@ -1,5 +1,6 @@
 {
-  "Trilha2": {
+  "TRILHA002": {
+    "ID": "TRILHA002",
     "Nome": "Trilha 2 - My Daily World",
     "Descricao": "Rotinas, hábitos, gostos e preferências cotidianas.",
     "Habilidades": ["EF06LI05", "EF06LI19"],

@@ -1,5 +1,6 @@
 {
-  "Trilha3": {
+  "TRILHA003": {
+    "ID": "TRILHA003",
     "Nome": "Trilha 3 - Read & Discover",
     "Descricao": "Leitura de textos curtos, compreensão de ideias principais e reconhecimento de cognatos.",
     "Habilidades": ["EF06LI08", "EF06LI05"],
