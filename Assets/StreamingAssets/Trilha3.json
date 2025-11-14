@@ -1,0 +1,209 @@
+{
+  "Trilha3": {
+    "Nome": "Trilha 3 - Read & Discover",
+    "Descricao": "Leitura de textos curtos, compreensão de ideias principais e reconhecimento de cognatos.",
+    "Habilidades": ["EF06LI08", "EF06LI05"],
+    "Questoes": [
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "Maria likes to read books and study English at home.",
+        "Questao": "What does Maria like to do?",
+        "Alternativas": ["Play soccer", "Read books", "Watch TV"],
+        "Explicacao": "Identifica ação principal em frase simples.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "Read books"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "Find the cognate: The students use computers in the library.",
+        "Alternativas": ["students", "library", "computers"],
+        "Explicacao": "Palavra de grafia semelhante ao português.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "computers"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "Brazil is a big country with many beaches.",
+        "Questao": "What is Brazil like?",
+        "Alternativas": ["Small", "Big", "Cold"],
+        "Explicacao": "Compreensão de adjetivo e informação global.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "Big"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "Find the correct meaning: The movie is very popular.",
+        "Alternativas": ["Novo", "Popular", "Triste"],
+        "Explicacao": "Palavra cognata idêntica.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "Popular"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "My favorite subject at school is science.",
+        "Questao": "What does the person like?",
+        "Alternativas": ["Math", "Science", "History"],
+        "Explicacao": "Identifica matéria escolar preferida.",
+        "Habilidades": ["EF06LI05", "EF06LI08"],
+        "RespostaCorreta": "Science"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "The zoo has elephants, lions and monkeys.",
+        "Questao": "Where are the animals?",
+        "Alternativas": ["At the park", "At the zoo", "At school"],
+        "Explicacao": "Localização simples.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "At the zoo"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "Find the cognate: The museum is open on weekends.",
+        "Alternativas": ["museum", "open", "weekends"],
+        "Explicacao": "Palavra parecida com 'museu'.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "museum"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "People drink coffee in the morning in Brazil.",
+        "Questao": "When do people drink coffee?",
+        "Alternativas": ["In the morning", "At night", "In the afternoon"],
+        "Explicacao": "Identifica tempo em texto.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "In the morning"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "Choose the cognate: Television is important for communication.",
+        "Alternativas": ["television", "for", "communication"],
+        "Explicacao": "Reconhecimento de vocabulário cognato.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "communication"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "My brother studies English and Spanish.",
+        "Questao": "How many languages does he study?",
+        "Alternativas": ["One", "Two", "Three"],
+        "Explicacao": "Compreensão literal de número.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "Two"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "My parents work at the university.",
+        "Questao": "Find the cognate word.",
+        "Alternativas": ["parents", "work", "university"],
+        "Explicacao": "Relação direta com 'universidade'.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "university"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "The restaurant is closed today. What is the opposite of 'closed'?",
+        "Alternativas": ["Near", "Open", "New"],
+        "Explicacao": "Inferência de antônimo.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "Open"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "My sister loves reading magazines.",
+        "Questao": "What does she love?",
+        "Alternativas": ["Playing soccer", "Reading magazines", "Cooking"],
+        "Explicacao": "Identificação de ação principal.",
+        "Habilidades": ["EF06LI05", "EF06LI08"],
+        "RespostaCorreta": "Reading magazines"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "Find the cognate: The students visit the national museum.",
+        "Alternativas": ["visit", "national", "museum"],
+        "Explicacao": "Palavra de mesma origem latina.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "national"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "The teacher is reading a new book about animals.",
+        "Questao": "Who is reading?",
+        "Alternativas": ["The teacher", "The student", "The animals"],
+        "Explicacao": "Identifica sujeito.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "The teacher"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "Find the meaning: The supermarket is near my house.",
+        "Alternativas": ["supermarket = mercado", "supermarket = super-herói", "supermarket = escola"],
+        "Explicacao": "Compreensão de vocabulário cotidiano.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "supermarket = mercado"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "I read books every weekend.",
+        "Questao": "When does the person read books?",
+        "Alternativas": ["Every day", "Every weekend", "At night"],
+        "Explicacao": "Identificação de frequência.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "Every weekend"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "Find the cognate: The hospital is an important place.",
+        "Alternativas": ["hospital", "important", "place"],
+        "Explicacao": "Palavra igual em ambas línguas.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "important"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "Students read about animals in science class.",
+        "Questao": "What do they read about?",
+        "Alternativas": ["Sports", "Animals", "Music"],
+        "Explicacao": "Leitura literal.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "Animals"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "The book is very interesting. What does 'interesting' mean?",
+        "Alternativas": ["Chato", "Legal", "Difícil"],
+        "Explicacao": "Inferência lexical por contexto e cognato.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "Legal"
+      }
+    ]
+  }
+}

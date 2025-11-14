@@ -1,0 +1,209 @@
+{
+  "Trilha4": {
+    "Nome": "Trilha 4 - My Places",
+    "Descricao": "Locais da cidade, direções simples e compreensão de mapas.",
+    "Habilidades": ["EF06LI05", "EF06LI08"],
+    "Questoes": [
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "The bank is next to the supermarket.",
+        "Alternativas": ["The bank is far away.", "The bank is beside the supermarket.", "The bank is behind the supermarket."],
+        "Explicacao": "Interpretação de posição ‘next to’.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "The bank is beside the supermarket."
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "Where do you borrow books?",
+        "Alternativas": ["At the library", "At the cinema", "At the hospital"],
+        "Explicacao": "Vocabulário relacionado a lugares.",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "At the library"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "The school is in front of the park.",
+        "Questao": "Where is the school?",
+        "Alternativas": ["Behind the park", "In front of the park", "Next to the park"],
+        "Explicacao": "Leitura literal de localização.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "In front of the park"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "You buy medicine at the ___",
+        "Alternativas": ["pharmacy", "restaurant", "bus station"],
+        "Explicacao": "Vocabulário: local de compra de remédios.",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "pharmacy"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "My house is between the bakery and the post office.",
+        "Questao": "Where is the house?",
+        "Alternativas": ["Next to the post office", "Between the bakery and the post office", "In front of the bakery"],
+        "Explicacao": "Compreensão de ‘between’.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "Between the bakery and the post office"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "Where do people watch movies?",
+        "Alternativas": ["Cinema", "Hospital", "Library"],
+        "Explicacao": "Associação de lugar e atividade.",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "Cinema"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "The restaurant is behind the hotel.",
+        "Questao": "Where is the restaurant?",
+        "Alternativas": ["In front of the hotel", "Behind the hotel", "Next to the hotel"],
+        "Explicacao": "Interpretação de preposição espacial.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "Behind the hotel"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "You take a bus at the ___",
+        "Alternativas": ["bus stop", "supermarket", "school"],
+        "Explicacao": "Vocabulário: transporte público.",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "bus stop"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "The museum is next to the river.",
+        "Questao": "What is next to the river?",
+        "Alternativas": ["The school", "The museum", "The cinema"],
+        "Explicacao": "Localização direta.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "The museum"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "You send letters at the ___",
+        "Alternativas": ["post office", "park", "stadium"],
+        "Explicacao": "Reconhecimento de locais da cidade.",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "post office"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "There is a big park behind my school.",
+        "Questao": "Where is the park?",
+        "Alternativas": ["Behind the school", "Next to the school", "In front of the school"],
+        "Explicacao": "Identificação de localização em texto curto.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "Behind the school"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "People buy food at the ___",
+        "Alternativas": ["supermarket", "library", "bank"],
+        "Explicacao": "Associação de vocabulário cotidiano.",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "supermarket"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "The hospital is far from my house.",
+        "Questao": "What is far from the house?",
+        "Alternativas": ["The park", "The cinema", "The hospital"],
+        "Explicacao": "Leitura contextual simples.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "The hospital"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "Where do children play?",
+        "Alternativas": ["At the park", "At the bank", "At the pharmacy"],
+        "Explicacao": "Compreensão de locais e usos.",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "At the park"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "My town has a school, a church, and two parks.",
+        "Questao": "How many parks are there?",
+        "Alternativas": ["One", "Two", "Three"],
+        "Explicacao": "Informação literal.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "Two"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "You pay for items at the ___",
+        "Alternativas": ["cash register", "bus stop", "playground"],
+        "Explicacao": "Vocabulário de compras.",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "cash register"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "The café is on the corner of Main Street.",
+        "Questao": "Where is the café?",
+        "Alternativas": ["On the corner", "Behind the park", "Next to the library"],
+        "Explicacao": "Interpretação de 'on the corner'.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "On the corner"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "You see animals at the ___",
+        "Alternativas": ["zoo", "school", "bank"],
+        "Explicacao": "Lugar associado a animais.",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "zoo"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "The bus station is next to the mall.",
+        "Questao": "What is next to the mall?",
+        "Alternativas": ["The library", "The bus station", "The bakery"],
+        "Explicacao": "Leitura exata de localização.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "The bus station"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "Where do people swim?",
+        "Alternativas": ["Pool", "restaurant", "museum"],
+        "Explicacao": "Reconhecimento de atividades e lugares.",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "Pool"
+      }
+    ]
+  }
+}

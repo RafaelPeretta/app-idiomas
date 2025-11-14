@@ -1,0 +1,209 @@
+{
+  "Trilha5": {
+    "Nome": "Trilha 5 - Time & Activities",
+    "Descricao": "Horas, rotina com horários e atividades associadas ao tempo.",
+    "Habilidades": ["EF06LI05", "EF06LI19", "EF06LI08"],
+    "Questoes": [
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "It is 7:00 a.m. What time is it?",
+        "Alternativas": ["Seven o'clock", "Six o'clock", "Eight o'clock"],
+        "Explicacao": "Leitura de horas cheias.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "Seven o'clock"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "I wake up at 6:30 every day.",
+        "Questao": "What time does the person wake up?",
+        "Alternativas": ["6:00", "6:30", "7:00"],
+        "Explicacao": "Identificação de horário em frase simples.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "6:30"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "It is 3:15. This is also:",
+        "Alternativas": ["Quarter past three", "Half past three", "Quarter to three"],
+        "Explicacao": "Vocabulário de hora com 'quarter past'.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "Quarter past three"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "My English class starts at 2:45.",
+        "Questao": "What time does the class start?",
+        "Alternativas": ["2:15", "2:45", "3:45"],
+        "Explicacao": "Leitura literal de horário.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "2:45"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "It is 12:30.",
+        "Alternativas": ["Half past twelve", "Quarter to twelve", "Midnight"],
+        "Explicacao": "Expressão com 'half past'.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "Half past twelve"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "I have lunch at ___",
+        "Alternativas": ["noon", "midnight", "dawn"],
+        "Explicacao": "Vocabulário de períodos do dia.",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "noon"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "We go to school in the morning.",
+        "Questao": "When do they go to school?",
+        "Alternativas": ["In the morning", "At night", "In the afternoon"],
+        "Explicacao": "Compreensão de expressão temporal.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "In the morning"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "It is 9:45.",
+        "Alternativas": ["Quarter to ten", "Quarter past nine", "Half past nine"],
+        "Explicacao": "Leitura de hora com 'quarter to'.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "Quarter to ten"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "I usually do my homework at 5:00 p.m.",
+        "Questao": "What does the person do at 5:00 p.m.?",
+        "Alternativas": ["Watch TV", "Do homework", "Have dinner"],
+        "Explicacao": "Vínculo entre horário e atividade.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "Do homework"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "She sleeps at ___",
+        "Alternativas": ["midnight", "noon", "sunrise"],
+        "Explicacao": "Identificação de período comum de descanso.",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "midnight"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "The movie starts at 8:20.",
+        "Questao": "What time does the movie start?",
+        "Alternativas": ["8:00", "8:20", "9:20"],
+        "Explicacao": "Leitura de horário em contexto.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "8:20"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "It is 6:00 p.m.",
+        "Alternativas": ["Six in the evening", "Six in the morning", "Midnight"],
+        "Explicacao": "Interpretação de período 'p.m.'.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "Six in the evening"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "Mark plays soccer in the afternoon.",
+        "Questao": "When does Mark play soccer?",
+        "Alternativas": ["In the evening", "In the afternoon", "At dawn"],
+        "Explicacao": "Compreensão literal de rotina.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "In the afternoon"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "It is 4:30.",
+        "Alternativas": ["Half past four", "Quarter past four", "Four o'clock"],
+        "Explicacao": "Expressões com 'half past'.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "Half past four"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "Students usually have classes in the ___",
+        "Alternativas": ["morning", "midnight", "evening"],
+        "Explicacao": "Identificação do período escolar comum.",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "morning"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "Anna has dinner at 7:15.",
+        "Questao": "What time does Anna have dinner?",
+        "Alternativas": ["7:00", "7:15", "7:50"],
+        "Explicacao": "Compreensão de rotina com horário.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "7:15"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "It is 1:00.",
+        "Alternativas": ["One o'clock", "One thirty", "Quarter past one"],
+        "Explicacao": "Leitura direta de horas cheias.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "One o'clock"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "I start studying at noon.",
+        "Questao": "When does the person start studying?",
+        "Alternativas": ["In the morning", "At noon", "At night"],
+        "Explicacao": "Identificação de período do dia.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "At noon"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "It is 11:15.",
+        "Alternativas": ["Quarter past eleven", "Quarter to eleven", "Half past eleven"],
+        "Explicacao": "Uso de ‘quarter past’.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "Quarter past eleven"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "Lucas goes to bed at 9:40.",
+        "Questao": "What time does Lucas go to bed?",
+        "Alternativas": ["9:15", "9:40", "10:00"],
+        "Explicacao": "Informação exata em frase curta.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "9:40"
+      }
+    ]
+  }
+}

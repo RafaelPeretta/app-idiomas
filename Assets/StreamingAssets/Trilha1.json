@@ -1,0 +1,209 @@
+{
+  "Trilha1": {
+    "Nome": "Getting Started",
+    "Descricao": "Vocabulário essencial, apresentação pessoal e uso do verb to be.",
+    "Habilidades": ["EF06LI19", "EF06LI05"],
+    "Questoes": [
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "I ___ from Brazil.",
+        "Alternativas": ["is", "am", "are"],
+        "Explicacao": "Emprego correto do to be na 1ª pessoa.",
+        "Habilidades": ["EF06LI19", "EF06LI05"],
+        "RespostaCorreta": "am"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "She ___ my friend.",
+        "Alternativas": ["are", "is", "am"],
+        "Explicacao": "Reconhece a forma de to be para 3ª pessoa.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "is"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "They ___ students.",
+        "Alternativas": ["is", "are", "am"],
+        "Explicacao": "Uso do to be no plural.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "are"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "What's your name?",
+        "Alternativas": ["I'm 12.", "I'm fine.", "I'm Lucas."],
+        "Explicacao": "Associa pergunta de identificação à resposta adequada",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "I'm Lucas."
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "How are you today?",
+        "Alternativas": ["I'm fine, thanks.", "I'm 12 years old.", "I'm from school."],
+        "Explicacao": "Uso de cumprimento e resposta de cortesia.",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "I'm fine, thanks."
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "Where are you from?",
+        "Alternativas": ["I'm from Brazil.", "I'm a student.", "I'm 11."],
+        "Explicacao": "Pergunta e resposta sobre origem",
+        "Habilidades": ["EF06LI05", "EF06LI19"],
+        "RespostaCorreta": "I'm from Brazil."
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "My mother ___ a teacher.",
+        "Alternativas": ["is", "are", "am"],
+        "Explicacao": "Identifica profissão de outra pessoa.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "is"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "He is my brother. ___ name is Tom.",
+        "Alternativas": ["Her", "His", "Their"],
+        "Explicacao": "Uso correto de pronomes possessivos",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "His"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "I am 12 years ___.",
+        "Alternativas": ["age", "old", "years"],
+        "Explicacao": "Expressão de idade.",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "old"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "We ___ friends.",
+        "Alternativas": ["is", "are", "am"],
+        "Explicacao": "Forma plural do to be",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "are"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "Are you a student?",
+        "Alternativas": ["Yes, I am.", "Yes, I is.", "Yes, I are."],
+        "Explicacao": "Respostas curtas afirmativas.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "Yes, I am."
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "She is happy, ___ she is tired.",
+        "Alternativas": ["but", "and", "because"],
+        "Explicacao": "Reconhece conectivo de oposição.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "but"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "This is my father. He ___ a doctor.",
+        "Alternativas": ["am", "is", "are"],
+        "Explicacao": "Combinação entre apresentação e profissão.",
+        "Habilidades": ["EF06LI05", "EF06LI19"],
+        "RespostaCorreta": "is"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "My friends are from France. They ___ French.",
+        "Alternativas": ["is", "are", "am"],
+        "Explicacao": "Identifica nacionalidade e origem.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "are"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "Find the cognate word: 'My brother is a musician.'",
+        "Alternativas": ["brother", "musician", "is"],
+        "Explicacao": "Reconhecimento de palavra cognata.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "musician"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "Hello! My name is Ana. I'm from São Paulo.",
+        "Questao": "What does Ana say about herself?",
+        "Alternativas": ["Her age", "Her city", "Her job"],
+        "Explicacao": "Interpretação de informações pessoais.",
+        "Habilidades": ["EF06LI05", "EF06LI08"],
+        "RespostaCorreta": "Her city"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "We ___ in the classroom.",
+        "Alternativas": ["be", "are", "is"],
+        "Explicacao": "Concordância sujeito-verbo.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "are"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "He is a student. ___ is very intelligent.",
+        "Alternativas": ["He", "She", "They"],
+        "Explicacao": "Reconhecimento de pronomes pessoais.",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "He"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "Good morning! How ___ you?",
+        "Alternativas": ["am", "are", "is"],
+        "Explicacao": "Uso de 'are' em saudação.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "are"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "I'm from Brazil and my favorite sport is soccer. ",
+        "Questao": "What is my favorite sport?",
+        "Alternativas": ["Volleyball", "Soccer", "Basketball"],
+        "Explicacao": "Compreensão literal de informação pessoal.",
+        "Habilidades": ["EF06LI05", "EF06LI08"],
+        "RespostaCorreta": "Soccer"
+      }
+    ]
+  }
+}

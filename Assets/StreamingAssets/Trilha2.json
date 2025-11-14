@@ -1,0 +1,209 @@
+{
+  "Trilha2": {
+    "Nome": "Trilha 2 - My Daily World",
+    "Descricao": "Rotinas, hábitos, gostos e preferências cotidianas.",
+    "Habilidades": ["EF06LI05", "EF06LI19"],
+    "Questoes": [
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "I ___ breakfast at 7 a.m.",
+        "Alternativas": ["have", "has", "having"],
+        "Explicacao": "Uso de 'have' no present simple com 1ª pessoa.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "have"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "She ___ to school by bus.",
+        "Alternativas": ["go", "goes", "going"],
+        "Explicacao": "Terminação -s na 3ª pessoa.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "goes"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "I like ___ soccer.",
+        "Alternativas": ["play", "playing", "plays"],
+        "Explicacao": "Estrutura 'like + -ing'.",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "playing"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "My father works in a hospital. He is a ___",
+        "Alternativas": ["teacher", "doctor", "driver"],
+        "Explicacao": "Associa rotina x profissão.",
+        "Habilidades": ["EF06LI05", "EF06LI08"],
+        "RespostaCorreta": "doctor"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "Do you like pizza?",
+        "Alternativas": ["Yes, I do.", "No, I am.", "Yes, she does."],
+        "Explicacao": "Resposta curta afirmativa.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "Yes, I do."
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "They ___ their homework every day.",
+        "Alternativas": ["do", "does", "doing"],
+        "Explicacao": "Uso correto do verbo 'do' no plural.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "do"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "Maria ___ watching movies on Fridays.",
+        "Alternativas": ["like", "likes", "liking"],
+        "Explicacao": "Uso do present simple para gosto.",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "likes"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "I never ___ milk in the morning.",
+        "Alternativas": ["drink", "drinks", "drinking"],
+        "Explicacao": "Uso de advérbio de frequência.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "drink"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "My brother and I ___ soccer after school.",
+        "Alternativas": ["play", "plays", "playing"],
+        "Explicacao": "Concordância verbal plural.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "play"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "She ___ coffee in the morning.",
+        "Alternativas": ["drink", "drinks", "drinking"],
+        "Explicacao": "Verbo com -s na 3ª pessoa.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "drinks"
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "Tom usually goes to bed at 10 p.m.",
+        "Questao": "When does Tom go to bed?",
+        "Alternativas": ["At 8 p.m.", "At 9 p.m.", "At 10 p.m."],
+        "Explicacao": "Leitura de informação específica.",
+        "Habilidades": ["EF06LI08"],
+        "RespostaCorreta": "At 10 p.m."
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "I always brush my ___ after lunch.",
+        "Alternativas": ["hair", "teeth", "shoes"],
+        "Explicacao": "Vocabulário de higiene.",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "teeth"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "What do you do in the evening?",
+        "Alternativas": ["I study and watch TV.", "I go school.", "I am sleep."],
+        "Explicacao": "Rotina noturna.",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "I study and watch TV."
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "My mother ___ the dishes after dinner.",
+        "Alternativas": ["wash", "washes", "washing"],
+        "Explicacao": "3ª pessoa singular.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "washes"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "They sometimes ___ to the park on Sundays.",
+        "Alternativas": ["go", "goes", "going"],
+        "Explicacao": "Advérbio + ação habitual.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "go"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "I love ___ ice cream.",
+        "Alternativas": ["eat", "eating", "to eat"],
+        "Explicacao": "Estrutura 'love + -ing'.",
+        "Habilidades": ["EF06LI05"],
+        "RespostaCorreta": "eating"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "He gets up early and ___ to work by car.",
+        "Alternativas": ["go", "goes", "going"],
+        "Explicacao": "Uso de duas ações em sequência.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "goes"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "We don't ___ TV in the morning.",
+        "Alternativas": ["watch", "watches", "watching"],
+        "Explicacao": "Forma negativa com 'don't + verbo base'.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "watch"
+      },
+      {
+        "Tipo": "simplesAlternativa",
+        "Midia": "",
+        "Texto": "",
+        "Questao": "Does your father work on weekends?",
+        "Alternativas": ["Yes, he does.", "No, he do.", "Yes, he is."],
+        "Explicacao": "Pergunta e resposta no present simple.",
+        "Habilidades": ["EF06LI19"],
+        "RespostaCorreta": "Yes, he does."
+      },
+      {
+        "Tipo": "textoAlternativa",
+        "Midia": "",
+        "Texto": "I study English because I love music.",
+        "Questao": "Why does the person study English?",
+        "Alternativas": ["Because he loves music.", "Because he has homework.", "Because he is bored."],
+        "Explicacao": "Compreensão causal simples.",
+        "Habilidades": ["EF06LI05", "EF06LI08"],
+        "RespostaCorreta": "Because he loves music."
+      }
+    ]
+  }
+}
