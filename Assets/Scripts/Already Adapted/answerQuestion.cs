@@ -54,7 +54,6 @@ public class answerQuestion : MonoBehaviour
         List<string> respostasCorretas = itemAtual.RespostaCorreta;
         bool estaCorreta = false;
 
-        // 🔹 Questões de alternativa (apenas 1 correta)
         if (itemAtual.Tipo != "simplesEscrita")
         {
             if (respostasCorretas.Count > 0)
@@ -62,12 +61,10 @@ public class answerQuestion : MonoBehaviour
         }
         else
         {
-            // 🔹 Questões de escrita: "parte1|parte2|parte3"
             string[] respostasUsuario = respostaUsuario.Split('|');
             estaCorreta = respostasUsuario.SequenceEqual(respostasCorretas);
         }
 
-        // 🔹 Salvar resposta
         var novaResposta = new RespostaUsuario
         {
             idQuestao = phaseUI.currentID,
@@ -83,7 +80,6 @@ public class answerQuestion : MonoBehaviour
         phaseUI.questaoRespondida = true;
         onRespostaRegistrada?.Invoke();
 
-        // Última questão → finaliza
         if (phaseUI.currentID >= fase.diagnostica_6ano.Count - 1)
         {
             FinalizarFase();
@@ -94,12 +90,6 @@ public class answerQuestion : MonoBehaviour
     {
         Debug.Log("[answerQuestion] Todas as respostas foram registradas. Gerando feedback...");
 
-        // UI visual de feedback final
-        HabilidadeFeedbackUI feedbackUI = GetComponent<HabilidadeFeedbackUI>();
-        if (feedbackUI != null)
-            feedbackUI.GerarFeedbackVisual(respostas);
-
-        // 🔹 Cada questão pode ter várias habilidades → expandimos
         var agrupadas =
             respostas.SelectMany(r => r.habilidades.Select(h => new { hab = h, resp = r }))
                      .GroupBy(x => x.hab);
@@ -114,19 +104,9 @@ public class answerQuestion : MonoBehaviour
             foreach (var item in grupo)
             {
                 var r = item.resp;
-                bool estaCorreta = false;
-
-                // Questão escrita
-                if (r.respostaUsuario.Contains("|"))
-                {
-                    string[] userSplit = r.respostaUsuario.Split('|');
-                    estaCorreta = userSplit.SequenceEqual(r.respostaCorreta);
-                }
-                else
-                {
-                    // Questão de alternativas
-                    estaCorreta = r.respostaUsuario == r.respostaCorreta[0];
-                }
+                bool estaCorreta = r.respostaUsuario.Contains("|")
+                    ? r.respostaUsuario.Split('|').SequenceEqual(r.respostaCorreta)
+                    : r.respostaUsuario == r.respostaCorreta[0];
 
                 if (estaCorreta)
                     acertos++;
@@ -141,7 +121,6 @@ public class answerQuestion : MonoBehaviour
                 habilidadesAprovadas.Add(grupo.Key);
         }
 
-        // ------------------- SALVAR NO FIRESTORE -------------------
         if (habilidadesAprovadas.Count == 0)
         {
             Debug.Log("[answerQuestion] Nenhuma habilidade aprovada.");

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
@@ -62,6 +62,9 @@ public class PhaseUIManager : MonoBehaviour
     public GameObject resultButtonPrefab;
     public Transform resultButtonsParent;
 
+    [Header("Gráfico")]
+    public BarGraphGenerator barGraphGenerator;
+
     public int currentID = 0;
     private List<QuestionData> questoes;
 
@@ -74,6 +77,7 @@ public class PhaseUIManager : MonoBehaviour
     private void Start()
     {
         answerScript = GetComponent<answerQuestion>();
+
         if (answerScript != null)
             answerScript.onRespostaRegistrada += OnRespostaRegistrada;
 
@@ -112,9 +116,18 @@ public class PhaseUIManager : MonoBehaviour
                 feedbackLayout.SetActive(true);
 
             if (feedbackTexto != null)
-                feedbackTexto.text = "Voc� concluiu todas as quest�es!";
+                feedbackTexto.text = "Você concluiu todas as questões!";
 
             GerarResultadoBotoes();
+
+            var porcentagens = CalcularPorcentagemPorHabilidade();
+
+            foreach (var p in porcentagens)
+                Debug.Log($"Habilidade {p.Key}: {p.Value}%");
+
+            if (barGraphGenerator != null)
+                barGraphGenerator.GerarGrafico(porcentagens);
+
             return;
         }
 
@@ -135,10 +148,8 @@ public class PhaseUIManager : MonoBehaviour
                 }
 
                 videoPerguntaText.text = item.Questao;
-
                 PreencherAlternativas(videoAlt1, videoAlt2, videoAlt3, item.Alternativas);
-                ConfigurarBotoes(videoBtn1, videoBtn2, videoBtn3,
-                                 videoAlt1, videoAlt2, videoAlt3, item);
+                ConfigurarBotoes(videoBtn1, videoBtn2, videoBtn3, videoAlt1, videoAlt2, videoAlt3, item);
                 break;
 
             case "imagemAlternativa":
@@ -151,8 +162,7 @@ public class PhaseUIManager : MonoBehaviour
                     imagemQuestao.sprite = null;
 
                 PreencherAlternativas(imgAlt1, imgAlt2, imgAlt3, item.Alternativas);
-                ConfigurarBotoes(imgBtn1, imgBtn2, imgBtn3,
-                                 imgAlt1, imgAlt2, imgAlt3, item);
+                ConfigurarBotoes(imgBtn1, imgBtn2, imgBtn3, imgAlt1, imgAlt2, imgAlt3, item);
                 break;
 
             case "simplesAlternativa":
@@ -160,8 +170,7 @@ public class PhaseUIManager : MonoBehaviour
                 simplesPerguntaText.text = item.Questao;
 
                 PreencherAlternativas(simAlt1, simAlt2, simAlt3, item.Alternativas);
-                ConfigurarBotoes(simBtn1, simBtn2, simBtn3,
-                                 simAlt1, simAlt2, simAlt3, item);
+                ConfigurarBotoes(simBtn1, simBtn2, simBtn3, simAlt1, simAlt2, simAlt3, item);
                 break;
 
             case "textoAlternativa":
@@ -170,8 +179,7 @@ public class PhaseUIManager : MonoBehaviour
                 textoConteudoText.text = item.Texto;
 
                 PreencherAlternativas(textoAlt1, textoAlt2, textoAlt3, item.Alternativas);
-                ConfigurarBotoes(textoBtn1, textoBtn2, textoBtn3,
-                                 textoAlt1, textoAlt2, textoAlt3, item);
+                ConfigurarBotoes(textoBtn1, textoBtn2, textoBtn3, textoAlt1, textoAlt2, textoAlt3, item);
                 break;
 
             case "simplesEscrita":
@@ -271,10 +279,7 @@ public class PhaseUIManager : MonoBehaviour
                                       QuestionData item, string respostaUsuario)
     {
         var lista = item.RespostaCorreta;
-
-        string correta = lista != null && lista.Count > 0
-                         ? lista[0]
-                         : "";
+        string correta = lista != null && lista.Count > 0 ? lista[0] : "";
 
         for (int i = 0; i < botoes.Length; i++)
         {
@@ -314,11 +319,7 @@ public class PhaseUIManager : MonoBehaviour
             var btnScript = btnObj.GetComponent<QuestionResultButton>();
 
             var lista = r.respostaCorreta;
-
-            string corretaStr = lista != null && lista.Count > 0
-                                ? lista[0]
-                                : "";
-
+            string corretaStr = lista != null && lista.Count > 0 ? lista[0] : "";
             bool estaCorreta = r.respostaUsuario == corretaStr;
 
             btnScript.Configurar(
@@ -329,5 +330,47 @@ public class PhaseUIManager : MonoBehaviour
                 estaCorreta
             );
         }
+    }
+
+    public Dictionary<string, float> CalcularPorcentagemPorHabilidade()
+    {
+        if (answerScript == null || answerScript.Respostas == null)
+            return new Dictionary<string, float>();
+
+        Dictionary<string, int> totalPorHabilidade = new Dictionary<string, int>();
+        Dictionary<string, int> acertosPorHabilidade = new Dictionary<string, int>();
+
+        foreach (var r in answerScript.Respostas)
+        {
+            string correta = r.respostaCorreta != null && r.respostaCorreta.Count > 0
+                             ? r.respostaCorreta[0]
+                             : "";
+
+            bool acertou = r.respostaUsuario == correta;
+
+            foreach (string hab in r.habilidades)
+            {
+                if (!totalPorHabilidade.ContainsKey(hab))
+                    totalPorHabilidade[hab] = 0;
+                if (!acertosPorHabilidade.ContainsKey(hab))
+                    acertosPorHabilidade[hab] = 0;
+
+                totalPorHabilidade[hab]++;
+                if (acertou)
+                    acertosPorHabilidade[hab]++;
+            }
+        }
+
+        Dictionary<string, float> porcentagens = new Dictionary<string, float>();
+        foreach (var kvp in totalPorHabilidade)
+        {
+            string habilidade = kvp.Key;
+            int total = kvp.Value;
+            int acertos = acertosPorHabilidade[habilidade];
+
+            porcentagens[habilidade] = (float)acertos / total * 100f;
+        }
+
+        return porcentagens;
     }
 }
