@@ -2039,8 +2039,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1040}
-  m_SizeDelta: {x: 700, y: 50}
+  m_AnchoredPosition: {x: 0, y: -1005}
+  m_SizeDelta: {x: 900, y: 110}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &448283673
 MonoBehaviour:
@@ -4828,9 +4828,11 @@ MonoBehaviour:
   corAlternativaErro: {r: 1, g: 0, b: 0, a: 1}
   feedbackLayout: {fileID: 1493929127}
   feedbackTexto: {fileID: 1581832171}
+  feedbackTMP: {fileID: 0}
   resultButtonPrefab: {fileID: 8643776942725463058, guid: 09caaa2616ddd554f9285768056dfe91, type: 3}
   resultButtonsParent: {fileID: 377962509}
   barGraphGenerator: {fileID: 585697770}
+  todasTrilhas: []
   currentID: 0
 --- !u!114 &1029191925
 MonoBehaviour:
@@ -4845,7 +4847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   botaoPrefab: {fileID: 4388472802292863203, guid: 3917d2bfbf6b0024c93170d8a7b0da5c, type: 3}
-  containerBotoes: {fileID: 0}
+  containerBotoes: {fileID: 448283672}
   listaHabilidadesFinal: []
 --- !u!114 &1029191926
 MonoBehaviour:

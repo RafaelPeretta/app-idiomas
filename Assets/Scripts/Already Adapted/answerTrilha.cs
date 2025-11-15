@@ -52,15 +52,22 @@ public class answerTrilha : MonoBehaviour
         List<string> respostasCorretas = itemAtual.RespostaCorreta;
         bool estaCorreta = false;
 
+        // Se o tipo da questão não for 'simplesEscrita', a comparação é simples
         if (itemAtual.Tipo != "simplesEscrita")
         {
             if (respostasCorretas.Count > 0)
+            {
+                // Comparação direta da resposta do usuário com a resposta correta
                 estaCorreta = respostaUsuario == respostasCorretas[0];
+                Debug.LogWarning($"[answerTrilha] Questão ID {trilhaUI.currentID} - Resposta do usuário: {respostaUsuario} | Resposta correta: {respostasCorretas[0]} | Correta? {estaCorreta}");
+            }
         }
         else
         {
+            // Se for do tipo 'simplesEscrita', as respostas do usuário são comparadas com a lista de respostas corretas
             string[] respostasUsuario = respostaUsuario.Split('|');
             estaCorreta = respostasUsuario.SequenceEqual(respostasCorretas);
+            Debug.LogWarning($"[answerTrilha] Questão ID {trilhaUI.currentID} - Resposta do usuário: {respostaUsuario} | Respostas corretas: {string.Join(", ", respostasCorretas)} | Correta? {estaCorreta}");
         }
 
         var novaResposta = new RespostaUsuario
@@ -73,7 +80,8 @@ public class answerTrilha : MonoBehaviour
 
         respostas.Add(novaResposta);
 
-        Debug.Log($"[RESPOSTA] Q{trilhaUI.currentID} | Correta: {estaCorreta} | Habs: {string.Join(",", itemAtual.Habilidades)}");
+        // Log do processo de resposta registrado
+        Debug.LogWarning($"[RESPOSTA] Q{trilhaUI.currentID} - Resposta registrada: {respostaUsuario} | Correta: {estaCorreta} | Habilidades: {string.Join(",", itemAtual.Habilidades)}");
 
         trilhaUI.questaoRespondida = true;
         onRespostaRegistrada?.Invoke();

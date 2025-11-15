@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿// ==== SEU SCRIPT COMPLETO COM A LÓGICA DE ADICIONAR QUIZ CORRESPONDENTE ====
+
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
@@ -68,6 +70,7 @@ public class PhaseUIManager : MonoBehaviour
     [Header("Feedback")]
     public GameObject feedbackLayout;
     public TMP_Text feedbackTexto;
+    public TMP_Text feedbackTMP;
 
     [Header("Resultados")]
     public GameObject resultButtonPrefab;
@@ -95,10 +98,7 @@ public class PhaseUIManager : MonoBehaviour
         if (answerScript != null)
             answerScript.onRespostaRegistrada += OnRespostaRegistrada;
 
-        // Carrega as trilhas do Firebase
         await CarregarTrilhasDoFirebase();
-
-        // Exibe todos os IDs de trilhas carregadas
         MostrarTodosIDsTrilhas();
 
         if (PhaseManager.Instance != null && PhaseManager.Instance.currentPhase != null)
@@ -107,6 +107,15 @@ public class PhaseUIManager : MonoBehaviour
             ShowItemByID(currentID);
         }
     }
+
+    public void MostrarTrilhaNaTelaDeFeedback(string nomeTrilha)
+    {
+        if (feedbackTMP != null)
+        {
+            feedbackTMP.text = $"Encaminhado para {nomeTrilha}";
+        }
+    }
+
 
     private async Task CarregarTrilhasDoFirebase()
     {
@@ -121,7 +130,6 @@ public class PhaseUIManager : MonoBehaviour
             {
                 foreach (var item in listaTrilhas)
                 {
-                    // Cada item deve ser um Dictionary<string, object>
                     var dict = item as Dictionary<string, object>;
                     if (dict != null)
                     {
@@ -134,7 +142,9 @@ public class PhaseUIManager : MonoBehaviour
                         if (dict.TryGetValue("Habilidades", out object habObj))
                         {
                             var habList = habObj as IEnumerable<object>;
-                            trilha.habilidades = habList != null ? habList.Select(o => o.ToString()).ToList() : new List<string>();
+                            trilha.habilidades = habList != null ?
+                                habList.Select(o => o.ToString()).ToList() :
+                                new List<string>();
                         }
                         else
                         {
@@ -157,12 +167,12 @@ public class PhaseUIManager : MonoBehaviour
 
 
 
+
     private void OnPhaseLoaded()
     {
         questoes = PhaseManager.Instance.currentPhase.diagnostica_6ano;
         currentID = 0;
 
-        // Log com os tipos das questões
         if (questoes != null && questoes.Count > 0)
         {
             Debug.Log("Tipos das questões carregadas:");
@@ -209,7 +219,6 @@ public class PhaseUIManager : MonoBehaviour
             if (barGraphGenerator != null)
                 barGraphGenerator.GerarGrafico(porcentagens);
 
-            // Identifica habilidade mais fraca (abaixo de 80%)
             string habilidadeMaisFraca = ObterHabilidadeMaisFraca();
             Debug.Log($"Habilidade mais fraca do aluno (abaixo de 80%): {habilidadeMaisFraca}");
 
@@ -222,7 +231,6 @@ public class PhaseUIManager : MonoBehaviour
                 {
                     int trilhaAtualNum = ExtrairNumeroTrilha(trilhaId);
 
-                    // Pega apenas todas as trilhas com número menor que a trilha da habilidade fraca
                     trilhasParaSalvar = todasTrilhas
                         .Where(t => ExtrairNumeroTrilha(t.id) < trilhaAtualNum)
                         .Select(t => t.id)
@@ -231,20 +239,32 @@ public class PhaseUIManager : MonoBehaviour
             }
             else
             {
-                // Nenhuma habilidade fraca -> salva todas as trilhas
                 trilhasParaSalvar = todasTrilhas.Select(t => t.id).ToList();
             }
 
+            // ADICIONAR QUIZ COM NÚMEROS CORRESPONDENTES
+            List<string> trilhasEQuiz = new List<string>();
 
-            if (trilhasParaSalvar.Count > 0)
+            foreach (string trilhaID in trilhasParaSalvar)
             {
-                Debug.Log($"Trilhas que serão adicionadas ao documento do usuário: {string.Join(", ", trilhasParaSalvar)}");
+                trilhasEQuiz.Add(trilhaID);
+
+                int num = ExtrairNumeroTrilha(trilhaID);
+                string quizID = $"QUIZ{num:000}";
+                trilhasEQuiz.Add(quizID);
+            }
+
+            if (trilhasEQuiz.Count > 0)
+            {
+                Debug.Log("Trilhas + QUIZ que serão salvos: " + string.Join(", ", trilhasEQuiz));
                 string userId = UserDataManager.userInstance.GetUserId();
-                AtualizarTrilhasUsuario(userId, trilhasParaSalvar);
+                AtualizarTrilhasUsuario(userId, trilhasEQuiz);
             }
 
             return;
         }
+
+
 
         if (feedbackLayout != null)
             feedbackLayout.SetActive(false);
@@ -271,8 +291,6 @@ public class PhaseUIManager : MonoBehaviour
 
                 if (!string.IsNullOrEmpty(item.Midia))
                     StartCoroutine(CarregarImagemDeURL(item.Midia, imagemQuestao));
-                else
-                    imagemQuestao.sprite = null;
 
                 PreencherAlternativas(imgAlt1, imgAlt2, imgAlt3, item.Alternativas);
                 ConfigurarBotoes(imgBtn1, imgBtn2, imgBtn3, imgAlt1, imgAlt2, imgAlt3, item);
@@ -521,7 +539,9 @@ public class PhaseUIManager : MonoBehaviour
         {
             if (trilha.habilidades.Contains(habilidadeMaisFraca))
                 return trilha.id;
+            MostrarTrilhaNaTelaDeFeedback(trilha.id);
         }
+        
 
         return null;
     }
@@ -537,7 +557,11 @@ public class PhaseUIManager : MonoBehaviour
 
     private async void AtualizarTrilhasUsuario(string userId, List<string> trilhasParaSalvar)
     {
-        if (string.IsNullOrEmpty(userId) || trilhasParaSalvar == null || trilhasParaSalvar.Count == 0) return;
+        if (string.IsNullOrEmpty(userId) || trilhasParaSalvar == null || trilhasParaSalvar.Count == 0)
+        {
+            Debug.LogError("ID do usuário ou trilhas para salvar estão vazias.");
+            return;
+        }
 
         var db = FirebaseFirestore.DefaultInstance;
         var usuarioRef = db.Collection("Users").Document(userId);
@@ -547,8 +571,15 @@ public class PhaseUIManager : MonoBehaviour
             { "trilhas", trilhasParaSalvar }
         };
 
-        await usuarioRef.SetAsync(updates, SetOptions.MergeAll);
-        Debug.Log($"Documento do usuário {userId} atualizado com sucesso.");
+        try
+        {
+            await usuarioRef.SetAsync(updates, SetOptions.MergeAll);
+            Debug.Log($"Documento do usuário {userId} atualizado com sucesso.");
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Erro ao atualizar o documento do usuário {userId}: {e.Message}");
+        }
     }
 
     private void MostrarTodosIDsTrilhas()

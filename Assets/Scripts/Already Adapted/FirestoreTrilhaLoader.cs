@@ -1,7 +1,10 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using Firebase;
 using Firebase.Firestore;
+using System.Linq;
+using System.Threading.Tasks;
 
 public class TrilhaLoader : MonoBehaviour
 {
@@ -10,42 +13,82 @@ public class TrilhaLoader : MonoBehaviour
 
     public event Action OnTrilhaLoaded;
 
-    private void Awake()
+    private async void Awake()
     {
+        // Se já existe uma instância do TrilhaLoader, destrua este objeto.
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
 
-        if (UserDataManager.userInstance != null)
+        // Inicializando o Firebase e aguardando sua inicialização
+        await InitializeFirebase();
+
+        // Se o Firebase não foi inicializado corretamente, não continue com o carregamento.
+        if (db == null)
         {
-            db = UserDataManager.userInstance.DatabaseFirestore;
+            Debug.LogError("[TrilhaLoader] FirebaseFirestore não inicializado corretamente.");
+            return;
         }
-        else
-        {
-            Debug.LogError("[TrilhaLoader] UserDataManager não encontrado.");
-        }
+
+        // Agora, o Firebase está pronto, e podemos continuar o carregamento das trilhas.
+        Debug.Log("[TrilhaLoader] Firebase inicializado com sucesso.");
     }
 
-    public void LoadTrilha(string trilhaID)
+    private async Task InitializeFirebase()
     {
+        // Aguardar a conclusão da inicialização do Firebase
+        var dependencyStatus = await FirebaseApp.CheckAndFixDependenciesAsync();
+
+        if (dependencyStatus != DependencyStatus.Available)
+        {
+            Debug.LogError($"[TrilhaLoader] Firebase não foi inicializado corretamente. Erro: {dependencyStatus}");
+            return;
+        }
+
+        // Agora o Firebase foi inicializado com sucesso.
+        FirebaseApp app = FirebaseApp.DefaultInstance;
+        db = FirebaseFirestore.GetInstance(app);
+        Debug.Log("[TrilhaLoader] Firestore inicializado com sucesso.");
+    }
+
+    public void LoadTrilha(string id)
+    {
+        Debug.LogWarning("ID RECEBIDO: " + id);
+
         if (db == null)
         {
             Debug.LogError("[TrilhaLoader] Firestore não inicializado.");
             return;
         }
 
-        LoadTrilhaFromFirestore(trilhaID);
+        // Detecta se é um quiz (ex: QUIZ001)
+        string trilhaID = id;
+        bool isQuiz = false;
+
+        if (id.StartsWith("QUIZ"))
+        {
+            isQuiz = true;
+            Debug.Log($"[TrilhaLoader] Quiz detectado. ID: {id}. Substituindo por ID de trilha.");
+            // Substitui QUIZ001 por TRILHA001
+            trilhaID = "TRILHA" + id.Substring(4);
+        }
+
+        Debug.Log($"[TrilhaLoader] Carregando trilha com ID: {trilhaID} (original: {id}).");
+
+        LoadTrilhaFromFirestore(trilhaID, id, isQuiz);
     }
 
-    private async void LoadTrilhaFromFirestore(string trilhaID)
+    private async void LoadTrilhaFromFirestore(string trilhaID, string originalID, bool isQuiz)
     {
         try
         {
+            // Acessando diretamente o Firestore
             DocumentReference docRef = db.Collection("trilhas").Document(trilhaID);
+            Debug.Log($"[TrilhaLoader] Acessando documento Firestore para a trilha com ID: {trilhaID}");
+
             DocumentSnapshot snapshot = await docRef.GetSnapshotAsync();
 
             if (!snapshot.Exists)
@@ -66,6 +109,8 @@ public class TrilhaLoader : MonoBehaviour
                 Debug.LogWarning("[TrilhaLoader] Questões vazias.");
                 return;
             }
+
+            Debug.Log($"[TrilhaLoader] {questoesList.Count} questões encontradas.");
 
             List<QuestionData> loadedQuestions = new List<QuestionData>();
 
@@ -90,16 +135,35 @@ public class TrilhaLoader : MonoBehaviour
                 }
             }
 
+            // Se for quiz, seleciona aleatoriamente 5 questões
+            if (isQuiz)
+            {
+                if (loadedQuestions.Count > 5)
+                {
+                    Debug.Log("[TrilhaLoader] Quiz detectado, selecionando aleatoriamente 5 questões.");
+                    // Seleciona aleatoriamente 5 questões
+                    loadedQuestions = loadedQuestions.OrderBy(x => UnityEngine.Random.value).Take(5).ToList();
+                    Debug.Log("[TrilhaLoader] 5 questões selecionadas para o quiz.");
+                }
+                else
+                {
+                    Debug.Log("[TrilhaLoader] Questões insuficientes para quiz, todas as questões serão carregadas.");
+                }
+            }
+
+            // Exibindo o número de questões carregadas
+            Debug.Log($"[TrilhaLoader] Carregamento finalizado com {loadedQuestions.Count} questões para o {(isQuiz ? "quiz" : "trilha")}.");
+
             TrilhaDataLoad loadedTrilha = new TrilhaDataLoad
             {
-                id = trilhaID,  // Preenche o ID da trilha
+                id = originalID, // Mantém ID do quiz se for quiz
                 questoes = loadedQuestions
             };
 
             if (TrilhaManager.Instance != null)
             {
                 TrilhaManager.Instance.currentTrilha = loadedTrilha;
-                Debug.Log($"[TrilhaLoader] Trilha '{trilhaID}' carregada ({loadedQuestions.Count} questões).");
+                Debug.Log($"[TrilhaLoader] {(isQuiz ? "Quiz" : "Trilha")} '{originalID}' carregado com sucesso.");
                 OnTrilhaLoaded?.Invoke();
             }
         }
