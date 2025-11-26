@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0455ca060cbf28c49bebd240475af406
+guid: fd72759f0fbccac4d8b85e17d7439582
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8230488904728474184
-    second: plus_0
+      213: -181322506959248185
+    second: livro_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,30 +109,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: plus_0
+      name: livro_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 254
-        height: 254
+        x: 33
+        y: 84
+        width: 433
+        height: 321
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 84272264d02983270800000000000000
-      internalID: 8230488904728474184
+      spriteID: 7c429eef320db7df0800000000000000
+      internalID: -181322506959248185
       vertices: []
       indices: 
       edges: []
@@ -161,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      plus_0: 8230488904728474184
+      livro_0: -181322506959248185
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

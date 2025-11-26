@@ -1,4 +1,3 @@
-using System.Security.Policy;
 using UnityEngine;
 
 public class SecondaryMenu_Navigation : MonoBehaviour

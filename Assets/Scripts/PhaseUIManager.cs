@@ -196,7 +196,7 @@ public class PhaseUIManager : MonoBehaviour
         nextBTN.SetActive(false);
     }
 
-    public void ShowItemByID(int id)
+    public async void ShowItemByID(int id)
     {
         questaoRespondida = false;
         ResetLayouts();
@@ -218,6 +218,9 @@ public class PhaseUIManager : MonoBehaviour
 
             if (barGraphGenerator != null)
                 barGraphGenerator.GerarGrafico(porcentagens);
+
+            string userId = UserDataManager.userInstance.GetUserId();
+            await SalvarResultadoAvaliacao(userId, porcentagens);
 
             string habilidadeMaisFraca = ObterHabilidadeMaisFraca();
             Debug.Log($"Habilidade mais fraca do aluno (abaixo de 80%): {habilidadeMaisFraca}");
@@ -257,7 +260,6 @@ public class PhaseUIManager : MonoBehaviour
             if (trilhasEQuiz.Count > 0)
             {
                 Debug.Log("Trilhas + QUIZ que serão salvos: " + string.Join(", ", trilhasEQuiz));
-                string userId = UserDataManager.userInstance.GetUserId();
                 AtualizarTrilhasUsuario(userId, trilhasEQuiz);
             }
 
@@ -554,6 +556,57 @@ public class PhaseUIManager : MonoBehaviour
         int.TryParse(numeroStr, out numero);
         return numero;
     }
+
+    private async Task SalvarResultadoAvaliacao(string userId, Dictionary<string, float> porcentagens)
+    {
+        if (string.IsNullOrEmpty(userId) || porcentagens == null || porcentagens.Count == 0)
+        {
+            Debug.LogError("Não foi possível salvar o resultado da avaliação: dados inválidos.");
+            return;
+        }
+
+        var db = FirebaseFirestore.DefaultInstance;
+
+        // Montar documento
+        var dados = new Dictionary<string, object>();
+
+        // ID da avaliação atual
+        string avaliacaoId = PhaseManager.Instance?.currentPhase?.id ?? "avaliacao_desconhecida";
+
+        dados["userId"] = userId;
+        dados["avaliacaoId"] = avaliacaoId;
+        dados["timestamp"] = Timestamp.GetCurrentTimestamp();
+
+        // Nota final geral
+        float notaFinal = porcentagens.Values.Average();
+        dados["notaFinal"] = notaFinal;
+
+        // Converter para array de objetos [{habilidade, nota}]
+        List<Dictionary<string, object>> listaPorHabilidade = new List<Dictionary<string, object>>();
+
+        foreach (var kvp in porcentagens)
+        {
+            listaPorHabilidade.Add(new Dictionary<string, object>
+        {
+            { "habilidade", kvp.Key },
+            { "nota", kvp.Value }
+        });
+        }
+
+        dados["pontuacaoPorHabilidade"] = listaPorHabilidade;
+
+        try
+        {
+            await db.Collection("realizados").AddAsync(dados);
+            Debug.Log("✔ Resultado da avaliação salvo com sucesso na coleção 'realizados'.");
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Erro ao salvar avaliação: {e.Message}");
+        }
+    }
+
+
 
     private async void AtualizarTrilhasUsuario(string userId, List<string> trilhasParaSalvar)
     {

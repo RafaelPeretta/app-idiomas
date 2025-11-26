@@ -5,6 +5,7 @@ public class TelaSecundariaController : MonoBehaviour
     [Header("Telas secundárias controladas por este script")]
     public GameObject telaSecundaria1;
     public GameObject telaSecundaria2;
+    public GameObject telaSecundaria3;
 
     private void Start()
     {
@@ -12,6 +13,8 @@ public class TelaSecundariaController : MonoBehaviour
             telaSecundaria1.SetActive(false);
         if (telaSecundaria2 != null)
             telaSecundaria2.SetActive(false);
+        if (telaSecundaria3 != null)
+            telaSecundaria3.SetActive(false);
     }
 
     public void AbrirTela1()
@@ -36,5 +39,17 @@ public class TelaSecundariaController : MonoBehaviour
     {
         if (telaSecundaria2 != null)
             telaSecundaria2.SetActive(false);
+    }
+
+    public void AbrirTela3()
+    {
+        if (telaSecundaria3 != null)
+            telaSecundaria3.SetActive(true);
+    }
+
+    public void FecharTela3()
+    {
+        if (telaSecundaria3 != null)
+            telaSecundaria3.SetActive(false);
     }
 }

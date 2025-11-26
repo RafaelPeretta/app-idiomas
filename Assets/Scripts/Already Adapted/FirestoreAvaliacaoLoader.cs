@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Collections.Generic;
 using UnityEngine;
 using Firebase.Firestore;
@@ -34,7 +34,7 @@ public class FirestorePhaseLoader : MonoBehaviour
         }
         else
         {
-            Debug.LogError("[FirestorePhaseLoader] UserDataManager n„o encontrado no GameObject.");
+            Debug.LogError("[FirestorePhaseLoader] UserDataManager n√£o encontrado no GameObject.");
         }
     }
 
@@ -44,14 +44,14 @@ public class FirestorePhaseLoader : MonoBehaviour
             yield return null;
 
         db = UserDataManager.userInstance.DatabaseFirestore;
-        Debug.Log("[FirestorePhaseLoader] Firestore agora est· pronto!");
+        Debug.Log("[FirestorePhaseLoader] Firestore agora est√° pronto!");
     }
 
     public void LoadPhase(string documentID)
     {
         if (db == null)
         {
-            Debug.LogError("[FirestorePhaseLoader] Firestore ainda n„o inicializado. N„o È possÌvel carregar a fase.");
+            Debug.LogError("[FirestorePhaseLoader] Firestore ainda n√£o inicializado. N√£o √© poss√≠vel carregar a fase.");
             return;
         }
 
@@ -67,20 +67,20 @@ public class FirestorePhaseLoader : MonoBehaviour
 
             if (!snapshot.Exists)
             {
-                Debug.LogWarning($"[FirestorePhaseLoader] Documento '{documentID}' n„o encontrado.");
+                Debug.LogWarning($"[FirestorePhaseLoader] Documento '{documentID}' n√£o encontrado.");
                 return;
             }
 
             if (!snapshot.TryGetValue("questoes", out object questoesObj) || questoesObj == null)
             {
-                Debug.LogWarning("[FirestorePhaseLoader] Campo 'questoes' n„o encontrado.");
+                Debug.LogWarning("[FirestorePhaseLoader] Campo 'questoes' n√£o encontrado.");
                 return;
             }
 
             List<object> questoesList = questoesObj as List<object>;
             if (questoesList == null || questoesList.Count == 0)
             {
-                Debug.LogWarning("[FirestorePhaseLoader] Questıes vazias.");
+                Debug.LogWarning("[FirestorePhaseLoader] Quest√µes vazias.");
                 return;
             }
 
@@ -98,10 +98,8 @@ public class FirestorePhaseLoader : MonoBehaviour
                         Questao = questaoDict.TryGetValue("Questao", out var questao) ? questao?.ToString() : "",
                         Objetivo = questaoDict.TryGetValue("Objetivo", out var objetivo) ? objetivo?.ToString() : "",
 
-                        // Agora ExplicaÁıes È STRING
                         Explicacoes = questaoDict.TryGetValue("Explicacoes", out var exp) ? exp?.ToString() : "",
 
-                        // Agora Habilidades È LISTA
                         Habilidades = questaoDict.TryGetValue("Habilidades", out var hab)
                             ? ConvertToStringList(hab)
                             : new List<string>(),
@@ -119,15 +117,17 @@ public class FirestorePhaseLoader : MonoBehaviour
                 }
             }
 
+            // üî• ADI√á√ÉO AQUI ‚Äì AGORA O ID DA AVALIA√á√ÉO √â SALVO
             PhaseDataLoad loadedPhase = new PhaseDataLoad
             {
+                id = documentID,  // <-- Corre√ß√£o fundamental
                 diagnostica_6ano = loadedQuestions
             };
 
             if (PhaseManager.Instance != null)
             {
                 PhaseManager.Instance.currentPhase = loadedPhase;
-                Debug.Log($"[FirestorePhaseLoader] Fase carregada ({loadedQuestions.Count} questıes).");
+                Debug.Log($"[FirestorePhaseLoader] Fase carregada ({loadedQuestions.Count} quest√µes). ID = {documentID}");
                 OnPhaseLoaded?.Invoke();
             }
         }

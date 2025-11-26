@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 57641103ff8ceec4fb88ab6a8ab6e881
+guid: bc562d0ef92f00f45bf2e351a33a266d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5691372075050524880
-    second: editor_0
-  - first:
-      213: 4204379678846084403
-    second: editor_1
+      213: 1700739854516897319
+    second: comunidade_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,30 +109,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: editor_0
+      name: comunidade_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 7
-        width: 220
-        height: 220
+        x: 21
+        y: 21
+        width: 458
+        height: 458
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d0e6f18fb0dbfe40800000000000000
-      internalID: 5691372075050524880
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: editor_1
-      rect:
-        serializedVersion: 2
-        x: 106
-        y: 107
-        width: 142
-        height: 142
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 335ed7aca05f85a30800000000000000
-      internalID: 4204379678846084403
+      spriteID: 72644d303ed3a9710800000000000000
+      internalID: 1700739854516897319
       vertices: []
       indices: 
       edges: []
@@ -186,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      editor_0: 5691372075050524880
-      editor_1: 4204379678846084403
+      comunidade_0: 1700739854516897319
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

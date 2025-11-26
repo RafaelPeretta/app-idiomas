@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 382fd4085d6dd91428997fc09cb297eb
+guid: 86e56d74de62a0e4e99d0a6ebf0bc8fa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2066675776389541680
-    second: configuracoes_0
+      213: 2251541697114403304
+    second: bussula_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,30 +109,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: configuracoes_0
+      name: bussula_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 256
-        height: 256
+        x: 89
+        y: 49
+        width: 332
+        height: 420
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d09562c451b153e0800000000000000
-      internalID: -2066675776389541680
+      spriteID: 8e1fb7d8e351f3f10800000000000000
+      internalID: 2251541697114403304
       vertices: []
       indices: 
       edges: []
@@ -161,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      configuracoes_0: -2066675776389541680
+      bussula_0: 2251541697114403304
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -8,6 +8,7 @@ using UnityEngine;
 [Serializable]
 public class PhaseDataLoad
 {
+    public string id; // ⬅ ADICIONE ISTO
     public List<QuestionData> diagnostica_6ano;
 }
 
@@ -17,6 +18,7 @@ public class PhaseDataLoad
 [Serializable]
 public class QuestionData
 {
+    
     public string Tipo;
     public string Midia;
     public string Texto;
