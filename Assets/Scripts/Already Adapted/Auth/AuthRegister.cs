@@ -193,6 +193,7 @@ public class AuthRegister : MonoBehaviour
 
         Debug.Log("Registro REALIZADO");
         OutputMessage.text = "Registro realizado com sucesso!";
+
     }
 
 }

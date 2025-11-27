@@ -22,6 +22,7 @@ public class UserData
     public Timestamp createdAt;
     public Timestamp? lastAction;
     public int vida;
+    public bool firstLogin;
 }
 
 public class UserDataManager : MonoBehaviour
@@ -98,6 +99,7 @@ public class UserDataManager : MonoBehaviour
                     { "habilidades", new List<string>() },
                     { "createdAt", Timestamp.GetCurrentTimestamp() },
                     { "pontos", 0 },
+                    { "firstLogin", true },
                 };
 
                 docRef.SetAsync(defaultData).ContinueWithOnMainThread(saveTask =>
@@ -153,9 +155,12 @@ public class UserDataManager : MonoBehaviour
                     habilidades = userData.TryGetValue("habilidades", out var cl1) && cl is List<object> listObj1 ? listObj1.ConvertAll(x => x.ToString()) : new List<string>(),
                     pontos = userData.TryGetValue("pontos", out var d) ? Convert.ToInt32(d) : 0,
                     createdAt = userData.TryGetValue("createdAt", out var ca) && ca is Timestamp ts ? ts : Timestamp.GetCurrentTimestamp(),
-                };
+                    firstLogin = userData.TryGetValue("firstLogin", out var fl) ? Convert.ToBoolean(fl) : false,
 
+                };
+                
                 Debug.Log($"[UserDataManager] Usuário carregado: {currentUserData.username}, Pontos: {currentUserData.pontos}, Criado em: {currentUserData.createdAt}");
+                AvaliacaoCheck(currentUserData.firstLogin);
                 UpdateUserProfile();
                 OnUserLoaded?.Invoke();
             }
@@ -164,6 +169,14 @@ public class UserDataManager : MonoBehaviour
                 Debug.LogWarning("[UserDataManager] Documento do usuário não encontrado.");
             }
         });
+    }
+
+    public void AvaliacaoCheck(bool firstLogin)
+    {
+        if (firstLogin)
+        {
+            FirstLogin.Instance.Avaliacao();
+        }
     }
 
     public void UpdateUserProfile()

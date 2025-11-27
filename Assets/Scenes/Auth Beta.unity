@@ -8921,6 +8921,7 @@ MonoBehaviour:
     pontos: 0
     userId: 
     vida: 0
+    firstLogin: 0
   hpText: {fileID: 0}
 --- !u!114 &6954860288225192819
 MonoBehaviour:
@@ -8961,6 +8962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPhase:
+    id: 
     diagnostica_6ano: []
 --- !u!114 &6954860288225192823
 MonoBehaviour:
@@ -9011,6 +9013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTrilha:
+    id: 
     questoes: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

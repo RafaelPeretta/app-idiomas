@@ -63,7 +63,7 @@ public class ResultadosLoader : MonoBehaviour
         }
 
         // --- APROVADO / REPROVADO ---
-        if (notaFinal >= 60)
+        if (notaFinal >= 80)
         {
             aprovadoText.text = "APROVADO";
             aprovadoText.color = Color.green;
