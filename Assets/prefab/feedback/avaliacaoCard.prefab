@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 6857897960577600982}
   - component: {fileID: 8583628390304495374}
   m_Layer: 5
-  m_Name: "Avalia\xE7\xE3o Resultado Card"
+  m_Name: avaliacaoCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -381,7 +381,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
+  m_fontSize: 30
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -501,7 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35bc43ade3fd71d4c8f924065efc62da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barPrefab: {fileID: 7680900391060894225}
+  barPrefab: {fileID: 1476081459578276613, guid: 5c6120a049f92594bb8b18ac3445398e, type: 3}
   barContainer: {fileID: 2459286859140977107}
 --- !u!1 &7459826378398306777
 GameObject:
@@ -595,7 +595,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
+  m_fontSize: 30
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -672,9 +672,9 @@ RectTransform:
   - {fileID: 7695751880250192110}
   m_Father: {fileID: 2459286859140977107}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 380, y: -580}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 620}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &8324920097371839735

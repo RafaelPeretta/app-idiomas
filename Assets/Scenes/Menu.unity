@@ -400,8 +400,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -57.5, y: 0}
-  m_SizeDelta: {x: -145, y: -10}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -30, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &195931624
 MonoBehaviour:
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 17
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -3541,6 +3541,7 @@ GameObject:
   - component: {fileID: 1230410711}
   - component: {fileID: 1230410710}
   - component: {fileID: 1230410712}
+  - component: {fileID: 1230410713}
   m_Layer: 0
   m_Name: MenuNavigation
   m_TagString: Untagged
@@ -3632,6 +3633,19 @@ MonoBehaviour:
   userId: 
   parent: {fileID: 1902959112}
   resultadoPrefab: {fileID: 2619906378806629475, guid: 290c270f9b4d63d4e9db7cfa72dc9bcf, type: 3}
+--- !u!114 &1230410713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230410706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2394e355ceaeacc4c8abd139de80b5e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  username: {fileID: 195931624}
 --- !u!1 &1238817981
 GameObject:
   m_ObjectHideFlags: 0
@@ -3935,6 +3949,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1408656557}
+  - component: {fileID: 1408656558}
   m_Layer: 5
   m_Name: MenuPerfil
   m_TagString: Untagged
@@ -3962,6 +3977,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 120}
   m_SizeDelta: {x: 0, y: -300}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1408656558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408656556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b9417264267e34db1b9b8b7dbfdffa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1415749781
 GameObject:
   m_ObjectHideFlags: 0
@@ -6172,9 +6199,9 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 800, y: 800}
-  m_Spacing: {x: 0, y: 0}
-  m_Constraint: 0
-  m_ConstraintCount: 2
+  m_Spacing: {x: 50, y: 50}
+  m_Constraint: 1
+  m_ConstraintCount: 1
 --- !u!1 &1934296115
 GameObject:
   m_ObjectHideFlags: 0
@@ -6502,7 +6529,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2065621234}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1408656558}
+        m_TargetAssemblyTypeName: LogoutManager, Assembly-CSharp
+        m_MethodName: Logout
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2065621234
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -156,7 +156,7 @@ public class UserDataManager : MonoBehaviour
                 };
 
                 Debug.Log($"[UserDataManager] Usuário carregado: {currentUserData.username}, Pontos: {currentUserData.pontos}, Criado em: {currentUserData.createdAt}");
-
+                UpdateUserProfile();
                 OnUserLoaded?.Invoke();
             }
             else
@@ -164,6 +164,19 @@ public class UserDataManager : MonoBehaviour
                 Debug.LogWarning("[UserDataManager] Documento do usuário não encontrado.");
             }
         });
+    }
+
+    public void UpdateUserProfile()
+    {
+        UpdateProfileUI ui = FindFirstObjectByType<UpdateProfileUI>();
+
+        if (ui == null)
+        {
+            Debug.LogWarning("[UserDataManager] UpdateProfileUI não encontrado na cena.");
+            return;
+        }
+
+        ui.updateProfile(currentUserData.username);
     }
 
 

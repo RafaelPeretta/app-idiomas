@@ -25,9 +25,6 @@ public class BarGraphGenerator : MonoBehaviour
         foreach (Transform child in barContainer)
             Destroy(child.gameObject);
 
-        RectTransform containerRect = barContainer.GetComponent<RectTransform>();
-        float maxAltura = containerRect.rect.height;
-
         foreach (var kvp in valores)
         {
             string habilidade = kvp.Key;
@@ -35,32 +32,30 @@ public class BarGraphGenerator : MonoBehaviour
 
             GameObject barObj = Instantiate(barPrefab, barContainer);
 
-            RectTransform barFill = barObj.transform.Find("Fill").GetComponent<RectTransform>();
+            Slider slider = barObj.transform.Find("barra").GetComponent<Slider>();
+            Image fillImg = barObj.transform.Find("barra/Fill").GetComponent<Image>();
             TMP_Text txtHabilidade = barObj.transform.Find("Nome").GetComponent<TMP_Text>();
             TMP_Text txtPercent = barObj.transform.Find("Percent").GetComponent<TMP_Text>();
 
-            // Substitui pelo nome curto, se existir
+            // Nome da habilidade
             if (habilidadeNomes.ContainsKey(habilidade))
                 txtHabilidade.text = habilidadeNomes[habilidade];
             else
-                txtHabilidade.text = habilidade; // se não tiver mapeamento, usa o código mesmo
+                txtHabilidade.text = habilidade;
 
+            // Texto do percentual
             txtPercent.text = Mathf.RoundToInt(porcentagem) + "%";
 
-            float altura = (porcentagem / 100f) * maxAltura;
-            barFill.sizeDelta = new Vector2(barFill.sizeDelta.x, altura);
+            // Valor da barra
+            slider.value = porcentagem;
 
-            // Define cor com base no desempenho
-            Image fillImg = barFill.GetComponent<Image>();
-            if (fillImg != null)
-            {
-                if (porcentagem >= 80f)
-                    fillImg.color = Color.green;
-                else if (porcentagem >= 50f)
-                    fillImg.color = Color.yellow;
-                else
-                    fillImg.color = Color.red;
-            }
+            // Cor baseada no desempenho
+            if (porcentagem >= 80f)
+                fillImg.color = Color.green;
+            else if (porcentagem >= 50f)
+                fillImg.color = Color.yellow;
+            else
+                fillImg.color = Color.red;
         }
     }
 }
